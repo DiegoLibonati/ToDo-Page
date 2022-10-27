@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ToDo APP</title>
+
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/41faca984e.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body oncontextmenu="return false">
+
+    <header class="header_container">
+
+        <div class="header_container_div">
+            <h1>ToDo APP</h1>
+        </div>
+
+    </header>
+
+    <section class="section_container">
+
+        <div class="section_container_tasks" id="tasks">
+            <div class="section_container_tasks_header">
+
+                <h2>
+                    TASKS TO DO
+                </h2>
+                
+                <button class="openMenu">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+            </div>
+
+            <div class="section_container_tasks_input">
+                <input type="text">
+                <button type="button" class="btnAccept"><i class="fa-solid fa-check"></i></button>
+            </div>
+
+            <div class="section_container_tasks_menu">
+                <div class="section_container_tasks_menu_header">
+                    <button type="button" class="closeMenu"><i class="fa-solid fa-chevron-up"></i></button>
+                </div>
+
+                <div class="section_container_tasks_menu_btns">
+                    <button type="button" class="clearAllTasks">CLEAR ALL TASKS</button>
+                </div>
+            </div>
+
+            <div class="section_container_tasks_note">
+                <ul class="section_container_tasks_note_list list">
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="section_container_progress" id="progress">
+            <div class="section_container_progress_header">
+
+                <h2>
+                    IN PROGRESS
+                </h2>
+                
+                <button class="openMenu">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+            </div>
+
+            <div class="section_container_progress_input">
+                <input type="text">
+                <button type="button" class="btnAccept"><i class="fa-solid fa-check"></i></button>
+            </div>
+
+            <div class="section_container_progress_menu">
+                <div class="section_container_progress_menu_header">
+                    <button type="button" class="closeMenu"><i class="fa-solid fa-chevron-up"></i></button>
+                </div>
+
+                <div class="section_container_progress_menu_btns">
+                    <button type="button" class="clearAllTasks">CLEAR ALL TASKS</button>
+                </div>
+            </div>
+
+            <div class="section_container_progress_note">
+                <ul class="section_container_progress_note_list list">
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="section_container_finish" id="finish">
+            <div class="section_container_finish_header">
+
+                <h2>
+                    DONE
+                </h2>
+                
+                <button class="openMenu">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+            </div>
+
+            <div class="section_container_finish_input">
+                <input type="text">
+                <button type="button" class="btnAccept"><i class="fa-solid fa-check"></i></button>
+            </div>
+
+            <div class="section_container_finish_menu">
+                <div class="section_container_finish_menu_header">
+                    <button type="button" class="closeMenu"><i class="fa-solid fa-chevron-up"></i></button>
+                </div>
+
+                <div class="section_container_finish_menu_btns">
+                    <button type="button" class="clearAllTasks">CLEAR ALL TASKS</button>
+                </div>
+            </div>
+
+            <div class="section_container_finish_note">
+                <ul class="section_container_finish_note_list list">
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer_container">
+        <div>
+            <h2>Instruccions:</h2>
+            <p>[MOUSE RIGHT CLICK] - DELETE</p>
+            <p>[MOUSE SCROLL CLICK] - CROSS OUT</p>
+            <p>[MOUSE LEFT CLICK HOLD] - DRAG AND DROP</p>
+        </div>
+    </footer>
+    
+
+    <script src="codigo.js"></script>
+</body>
+</html>
+

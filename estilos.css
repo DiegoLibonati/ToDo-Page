@@ -1,0 +1,672 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: #333C83;
+}
+
+
+.header_container{
+    width: 100%;
+    height: 20rem;
+}
+
+    .header_container_div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 20rem;
+    }
+
+        .header_container h1{
+            font-size: 7rem;
+            color: #fff;
+        }
+
+
+
+.section_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    position: relative;
+    width: 100%;
+    height: 123rem;
+}
+
+    .section_container_tasks{
+        display: flex;
+        flex-flow: column nowrap;
+        width: 80%;
+        height: 40rem;
+        background: #F24A72;
+        box-shadow: .2rem .2rem .2rem .2rem #000;
+        border-radius: .5rem;
+        margin-bottom: 1rem;
+    }
+
+        .section_container_tasks_header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 5rem;
+        }
+
+            .section_container_tasks_header h2{
+                font-size: 3rem;
+                padding-left: 1rem;
+                color: #fff;
+            }
+
+            .section_container_tasks_header button{
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .section_container_tasks_header button i{
+                padding-right: 1rem;
+                font-size: 3rem;
+                color: #fff;
+            }
+
+
+        .section_container_tasks_input{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 5rem;
+        }
+
+            .section_container_tasks_input input{
+                font-size: 3rem;
+                height: 4rem;
+                width: 85%;
+                outline: none;
+                margin-left: .5rem;
+                border-radius: .5rem;
+            }
+
+            .section_container_tasks_input button{
+                height: 4rem;
+                width: 12.5%;
+                margin-right: .5rem;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+
+            .section_container_tasks_input button i{
+                font-size: 3rem;
+                color: #fff;
+            }
+
+        .section_container_tasks_menu{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-flow: column nowrap;
+            background: #F24A72;
+            position: absolute;
+            height: 40rem;
+            width: 80%;
+            transform: translateY(-200%);
+            transition: transform 1s;
+        }
+
+            .section_container_tasks_menu_header{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 10rem;
+            }
+
+                .section_container_tasks_menu_header button{
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                    .section_container_tasks_menu button i{
+                        font-size: 5rem;
+                        color: #fff;
+                    }
+            
+
+            .section_container_tasks_menu_btns{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                width: 100%;
+                height: 30rem;
+            }
+
+                .section_container_tasks_menu_btns button{
+                    background: none;
+                    border: none;
+                    font-size: 3rem;
+                    color: #fff;
+                    cursor: pointer;
+                }
+
+        .section_container_tasks_note{
+            width: 100%;
+            height: 30rem;
+        }
+
+            .section_container_tasks_note_list{
+                width: 100%;
+                height: 30rem;
+            }
+
+                .section_container_tasks_note_list li{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                    .section_container_tasks_note_list li div{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border: .2rem solid #fff;
+                        border-radius: .5rem;
+                        height: 5rem;
+                        width: 95%;
+                        margin-top: 1rem;
+                        padding: 1rem;
+                    }
+                        .section_container_tasks_note_list li div h2{
+                            font-size: 2rem;
+                            color: #fff;
+                        }
+
+                        .section_container_tasks_note_list li div button{
+                            background: none;
+                            border: none;
+                        }
+
+                            .section_container_tasks_note_list li div button i{
+                                font-size: 2rem;
+                                color: #fff;
+                            }
+
+
+    .section_container_progress{
+        display: flex;
+        flex-flow: column nowrap;
+        width: 80%;
+        height: 40rem;
+        background: #F24A72;
+        box-shadow: .2rem .2rem .2rem .2rem #000;
+        border-radius: .5rem;
+        margin-bottom: 1rem;
+    }
+
+        .section_container_progress_header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 5rem;
+        }
+
+            .section_container_progress_header h2{
+                font-size: 3rem;
+                padding-left: 1rem;
+                color: #fff;
+            }
+
+            .section_container_progress_header button{
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .section_container_progress_header button i{
+                padding-right: 1rem;
+                font-size: 3rem;
+                color: #fff;
+            }
+
+
+        .section_container_progress_input{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 5rem;
+        }
+
+            .section_container_progress_input input{
+                font-size: 3rem;
+                height: 4rem;
+                width: 85%;
+                outline: none;
+                margin-left: .5rem;
+                border-radius: .5rem;
+            }
+
+            .section_container_progress_input button{
+                height: 4rem;
+                width: 12.5%;
+                margin-right: .5rem;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+
+            .section_container_progress_input button i{
+                font-size: 3rem;
+                color: #fff;
+            }
+
+            .section_container_progress_menu{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-flow: column nowrap;
+                background: #F24A72;
+                position: absolute;
+                height: 40rem;
+                width: 80%;
+                transform: translateY(-200%);
+                transition: transform 1s;
+            }
+    
+                .section_container_progress_menu_header{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 10rem;
+                }
+    
+                    .section_container_progress_menu_header button{
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                    }
+    
+                        .section_container_progress_menu button i{
+                            font-size: 5rem;
+                            color: #fff;
+                        }
+                
+    
+                .section_container_progress_menu_btns{
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    width: 100%;
+                    height: 30rem;
+                }
+    
+                    .section_container_progress_menu_btns button{
+                        background: none;
+                        border: none;
+                        font-size: 3rem;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+
+            .section_container_progress_note{
+                width: 100%;
+                height: 30rem;
+            }
+    
+                .section_container_progress_note_list{
+                    width: 100%;
+                    height: 30rem;
+                }
+    
+                    .section_container_progress_note_list li{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+    
+                        .section_container_progress_note_list li div{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border: .2rem solid #fff;
+                            border-radius: .5rem;
+                            height: 5rem;
+                            width: 95%;
+                            margin-top: 1rem;
+                            padding: 1rem;
+                        }
+                            .section_container_progress_note_list li div h2{
+                                font-size: 2rem;
+                                color: #fff;
+                            }
+    
+                            .section_container_progress_note_list li div button{
+                                background: none;
+                                border: none;
+                            }
+    
+                                .section_container_progress_note_list li div button i{
+                                    font-size: 2rem;
+                                    color: #fff;
+                                }
+    
+    .section_container_finish{
+        display: flex;
+        flex-flow: column nowrap;
+        width: 80%;
+        height: 40rem;
+        background: #F24A72;
+        box-shadow: .2rem .2rem .2rem .2rem #000;
+        border-radius: .5rem;
+    }
+
+        .section_container_finish_header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 5rem;
+        }
+
+            .section_container_finish_header h2{
+                font-size: 3rem;
+                padding-left: 1rem;
+                color: #fff;
+            }
+
+            .section_container_finish_header button{
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .section_container_finish_header button i{
+                padding-right: 1rem;
+                font-size: 3rem;
+                color: #fff;
+            }
+
+
+        .section_container_finish_input{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 5rem;
+        }
+
+            .section_container_finish_input input{
+                font-size: 3rem;
+                height: 4rem;
+                width: 85%;
+                outline: none;
+                margin-left: .5rem;
+                border-radius: .5rem;
+            }
+
+            .section_container_finish_input button{
+                height: 4rem;
+                width: 12.5%;
+                margin-right: .5rem;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+
+            .section_container_finish_input button i{
+                font-size: 3rem;
+                color: #fff;
+            }
+
+            .section_container_finish_menu{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-flow: column nowrap;
+                background: #F24A72;
+                position: absolute;
+                height: 40rem;
+                width: 80%;
+                transform: translateY(-400%);
+                transition: transform 1s;
+            }
+    
+                .section_container_finish_menu_header{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 10rem;
+                }
+    
+                    .section_container_finish_menu_header button{
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                    }
+    
+                        .section_container_finish_menu button i{
+                            font-size: 5rem;
+                            color: #fff;
+                        }
+                
+    
+                .section_container_finish_menu_btns{
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    width: 100%;
+                    height: 30rem;
+                }
+    
+                    .section_container_finish_menu_btns button{
+                        background: none;
+                        border: none;
+                        font-size: 3rem;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+
+            .section_container_finish_note{
+                width: 100%;
+                height: 30rem;
+            }
+    
+                .section_container_finish_note_list{
+                    width: 100%;
+                    height: 30rem;
+                }
+    
+                    .section_container_finish_note_list li{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+    
+                        .section_container_finish_note_list li div{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border: .2rem solid #fff;
+                            border-radius: .5rem;
+                            height: 5rem;
+                            width: 95%;
+                            margin-top: 1rem;
+                            padding: 1rem;
+                        }
+                            .section_container_finish_note_list li div h2{
+                                font-size: 2rem;
+                                color: #fff;
+                            }
+    
+                            .section_container_finish_note_list li div button{
+                                background: none;
+                                border: none;
+                            }
+    
+                                .section_container_finish_note_list li div button i{
+                                    font-size: 2rem;
+                                    color: #fff;
+                                }
+
+    .line{
+        text-decoration:line-through;
+        color: #333C83;
+    }
+
+    .menu{
+        transform: translateY(0%);
+    }
+
+    .footer_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column nowrap;
+        height: 20rem;
+        width: 100%;
+    }
+
+        .footer_container div{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            height: 100%;
+            width: 80%;
+        }
+
+            .footer_container div h2{
+                align-self: center;
+                color: #fff;
+                font-size: 3rem;
+            }
+
+            .footer_container div p{
+                padding: .5rem;
+                text-align: justify;
+                color: #fff;
+                font-size: 1.5rem;
+            }
+
+@media screen and (min-width: 1024px) {
+    
+    .section_container{
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        height: 60rem;
+    }
+    
+    .section_container_tasks{
+        width: 20%;
+        height: 60rem;
+        margin-bottom: 0rem;
+    }
+
+    .section_container_progress{
+        width: 20%;
+        height: 60rem;
+        margin-bottom: 0rem;
+    }
+
+    .section_container_finish{
+        width: 20%;
+        height: 60rem;
+        margin-bottom: 0rem;
+    }
+
+    .section_container_tasks_note{
+        height: 100%;
+    }
+
+    .section_container_tasks_note_list{
+        height: 100%;
+    }
+
+    .section_container_progress_note{
+        height: 100%;
+    }
+
+    .section_container_progress_note_list{
+        height: 100%;
+    }
+
+    .section_container_finish_note{
+        height: 100%;
+    }
+
+    .section_container_finish_note_list{
+        height: 100%;
+    }
+
+    .section_container_tasks_note_list li div button{
+        display: none;
+    }
+
+    .section_container_progress_note_list li div button{
+        display: none;
+    }
+
+    .section_container_finish_note_list li div button{
+        display: none;
+    }
+
+    .section_container_tasks_note_list li div{
+        justify-content: center;
+    }
+
+    .section_container_progress_note_list li div{
+        justify-content: center;
+    }
+
+    .section_container_finish_note_list li div{
+        justify-content: center;
+    }
+
+    .section_container_tasks_menu{
+        height: 60rem;
+        width: 20%;
+    }
+
+    .section_container_progress_menu{
+        height: 60rem;
+        width: 20%;
+    }
+
+
+    .section_container_finish_menu{
+        height: 60rem;
+        width: 20%;
+    }
+
+
+    .footer_container{
+        height: 12rem;
+    }
+
+            .footer_container div p{
+                align-self: center;
+                padding: 0rem;
+            }
+
+}
