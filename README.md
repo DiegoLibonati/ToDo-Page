@@ -30,7 +30,7 @@ I made a web page that works like JIRA. It is a page where we can upload tasks t
 ![ToDo-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/ToDo-1.jpg)
 
 ![ToDo-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/ToDo-2.jpg)
-ToDo
+
 ![ToDo-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/ToDo-3.jpg)
 
 ## Portfolio Link
