@@ -35,7 +35,7 @@ I made a web page that works like JIRA. It is a page where we can upload tasks t
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=ToDo%20page`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=ToDo%20Page`
 
 ## Video
 
