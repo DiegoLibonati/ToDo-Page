@@ -84,6 +84,7 @@ body{
                 padding-right: 1rem;
                 font-size: 3rem;
                 color: #fff;
+                overflow: hidden;
             }
 
 
@@ -116,6 +117,7 @@ body{
             .section_container_tasks_input button i{
                 font-size: 3rem;
                 color: #fff;
+                overflow: hidden;
             }
 
         .section_container_tasks_menu{
@@ -148,6 +150,7 @@ body{
                     .section_container_tasks_menu button i{
                         font-size: 5rem;
                         color: #fff;
+                        overflow: hidden;
                     }
             
 
@@ -207,6 +210,7 @@ body{
                             .section_container_tasks_note_list li div button i{
                                 font-size: 2rem;
                                 color: #fff;
+                                overflow: hidden;
                             }
 
 
@@ -245,6 +249,7 @@ body{
                 padding-right: 1rem;
                 font-size: 3rem;
                 color: #fff;
+                overflow: hidden;
             }
 
 
@@ -277,6 +282,7 @@ body{
             .section_container_progress_input button i{
                 font-size: 3rem;
                 color: #fff;
+                overflow: hidden;
             }
 
             .section_container_progress_menu{
@@ -309,6 +315,7 @@ body{
                         .section_container_progress_menu button i{
                             font-size: 5rem;
                             color: #fff;
+                            overflow: hidden;
                         }
                 
     
@@ -368,6 +375,7 @@ body{
                                 .section_container_progress_note_list li div button i{
                                     font-size: 2rem;
                                     color: #fff;
+                                    overflow: hidden;
                                 }
     
     .section_container_finish{
@@ -404,6 +412,7 @@ body{
                 padding-right: 1rem;
                 font-size: 3rem;
                 color: #fff;
+                overflow: hidden;
             }
 
 
@@ -436,6 +445,7 @@ body{
             .section_container_finish_input button i{
                 font-size: 3rem;
                 color: #fff;
+                overflow: hidden;
             }
 
             .section_container_finish_menu{
@@ -468,6 +478,7 @@ body{
                         .section_container_finish_menu button i{
                             font-size: 5rem;
                             color: #fff;
+                            overflow: hidden;
                         }
                 
     
@@ -527,6 +538,7 @@ body{
                                 .section_container_finish_note_list li div button i{
                                     font-size: 2rem;
                                     color: #fff;
+                                    overflow: hidden;
                                 }
 
     .line{
