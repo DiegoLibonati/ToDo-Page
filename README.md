@@ -1,4 +1,4 @@
-# ToDo-Page
+# ToDo Page
 
 ## Getting Started
 
@@ -36,7 +36,7 @@ I made a web page that works like JIRA. It is a page where we can upload tasks t
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/45`](https://www.diegolibonati.com.ar/#/project/45)
+[`https://www.diegolibonati.com.ar/#/project/ToDo-Page`](https://www.diegolibonati.com.ar/#/project/ToDo-Page)
 
 ## Video
 
