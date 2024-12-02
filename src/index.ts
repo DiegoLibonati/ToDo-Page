@@ -86,19 +86,15 @@ const handleDeleteTask = (e: Event): void => {
 
 const handleCompleteTask = (e: MouseEvent): void => {
   const tasks = getTasksFromLocalStorage();
-  const target = e.target as HTMLElement;
-  const li = target.parentElement;
+  const li = e.currentTarget as HTMLElement;
   const idTaskElement = li?.id;
+
+  if (li.classList.contains("line")) li?.classList.remove("line");
+  else li?.classList.add("line");
 
   const newList = tasks.map((task) => {
     if (task.id === idTaskElement?.split("/")[1]) {
       task.complete = !task.complete;
-
-      if (task.complete) {
-        li?.classList.add("line");
-      } else {
-        li?.classList.remove("line");
-      }
     }
     return task;
   });
@@ -182,7 +178,8 @@ const insertTaskInContainer = (task: Task): void => {
   taskText.textContent = task.text;
 
   const buttonDelete = document.createElement("button");
-  buttonDelete.type = "button";
+  buttonDelete.setAttribute("type", "button");
+  buttonDelete.setAttribute("aria-label", `delete task ${task.id}`);
   buttonDelete.classList.add("deleteTask");
 
   buttonDelete.addEventListener("click", (e) => handleDeleteTask(e));
