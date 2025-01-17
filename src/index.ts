@@ -156,7 +156,7 @@ const handleDrop = (e: Event) => {
 // Con cada click, se genera un LI en la respectiva categoria
 const insertTaskInContainer = (task: Task): void => {
   const container = document.querySelector(
-    `.section_container_${task.category}_note_list`
+    `.menu__${task.category}__note__list`
   );
 
   const containerTask = document.createElement("li");

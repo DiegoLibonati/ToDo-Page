@@ -1,0 +1,28 @@
+:root {
+  --primary-font: "Roboto Condensed", Helvetica, sans-serif;
+  --base-font-size: 10px;
+  --primary-color: #333c83;
+  --secondary-color: #f24a72;
+  --white-color: #ffffff;
+  --black-color: #000000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-size: var(--base-font-size);
+  font-family: var(--primary-font);
+  box-sizing: border-box;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary-color);
+  overflow-x: hidden;
+}

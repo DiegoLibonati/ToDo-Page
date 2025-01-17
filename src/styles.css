@@ -1,29 +1,9 @@
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-  font-size: 10px;
-  list-style: none;
-  font-family: "Roboto Condensed", sans-serif;
-  overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
-}
-
-body {
-  width: 100vw;
-  height: 100vh;
-  background: #333c83;
-}
-
-.header_container {
+.header {
   width: 100%;
   height: 20rem;
 }
 
-.header_container_div {
+.header__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,12 +11,12 @@ body {
   height: 20rem;
 }
 
-.header_container h1 {
+.header h1 {
   font-size: 7rem;
-  color: #fff;
+  color: var(--white-color);
 }
 
-.section_container {
+.menus__todos {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,18 +26,18 @@ body {
   height: 123rem;
 }
 
-.section_container_tasks {
+.menu__tasks {
   display: flex;
   flex-flow: column nowrap;
   width: 80%;
   height: 40rem;
-  background: #f24a72;
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #000;
+  background: var(--secondary-color);
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem var(--black-color);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.section_container_tasks_header {
+.menu__tasks__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,26 +45,26 @@ body {
   height: 5rem;
 }
 
-.section_container_tasks_header h2 {
+.menu__tasks__header h2 {
   font-size: 3rem;
   padding-left: 1rem;
-  color: #fff;
+  color: var(--white-color);
 }
 
-.section_container_tasks_header button {
+.menu__tasks__header button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.section_container_tasks_header button i {
+.menu__tasks__header button i {
   padding-right: 1rem;
   font-size: 3rem;
-  color: #fff;
+  color: var(--white-color);
   overflow: hidden;
 }
 
-.section_container_tasks_input {
+.menu__tasks__insert {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,7 +72,7 @@ body {
   height: 5rem;
 }
 
-.section_container_tasks_input input {
+.menu__tasks__insert input {
   font-size: 3rem;
   height: 4rem;
   width: 85%;
@@ -101,7 +81,7 @@ body {
   border-radius: 0.5rem;
 }
 
-.section_container_tasks_input button {
+.menu__tasks__insert button {
   height: 4rem;
   width: 12.5%;
   margin-right: 0.5rem;
@@ -110,341 +90,18 @@ body {
   cursor: pointer;
 }
 
-.section_container_tasks_input button i {
+.menu__tasks__insert button i {
   font-size: 3rem;
-  color: #fff;
+  color: var(--white-color);
   overflow: hidden;
 }
 
-.section_container_tasks_menu {
+.menu__tasks__config {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-flow: column nowrap;
-  background: #f24a72;
-  position: absolute;
-  height: 40rem;
-  width: 80%;
-  transform: translateY(-200%);
-  transition: transform 1s;
-}
-
-.section_container_tasks_menu_header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 10rem;
-}
-
-.section_container_tasks_menu_header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.section_container_tasks_menu button i {
-  font-size: 5rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.section_container_tasks_menu_btns {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  height: 30rem;
-}
-
-.section_container_tasks_menu_btns button {
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-.section_container_tasks_note {
-  width: 100%;
-  height: 30rem;
-}
-
-.section_container_tasks_note_list {
-  width: 100%;
-  height: 30rem;
-}
-
-.section_container_tasks_note_list li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.section_container_tasks_note_list li div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 0.2rem solid #fff;
-  border-radius: 0.5rem;
-  height: 5rem;
-  width: 95%;
-  margin-top: 1rem;
-  padding: 1rem;
-}
-.section_container_tasks_note_list li div h2 {
-  font-size: 2rem;
-  color: #fff;
-}
-
-.section_container_tasks_note_list li div button {
-  background: none;
-  border: none;
-}
-
-.section_container_tasks_note_list li div button i {
-  font-size: 2rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.section_container_progress {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 80%;
-  height: 40rem;
-  background: #f24a72;
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #000;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.section_container_progress_header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-}
-
-.section_container_progress_header h2 {
-  font-size: 3rem;
-  padding-left: 1rem;
-  color: #fff;
-}
-
-.section_container_progress_header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.section_container_progress_header button i {
-  padding-right: 1rem;
-  font-size: 3rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.section_container_progress_input {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-}
-
-.section_container_progress_input input {
-  font-size: 3rem;
-  height: 4rem;
-  width: 85%;
-  outline: none;
-  margin-left: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-.section_container_progress_input button {
-  height: 4rem;
-  width: 12.5%;
-  margin-right: 0.5rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.section_container_progress_input button i {
-  font-size: 3rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.section_container_progress_menu {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-flow: column nowrap;
-  background: #f24a72;
-  position: absolute;
-  height: 40rem;
-  width: 80%;
-  transform: translateY(-200%);
-  transition: transform 1s;
-}
-
-.section_container_progress_menu_header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 10rem;
-}
-
-.section_container_progress_menu_header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.section_container_progress_menu button i {
-  font-size: 5rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.section_container_progress_menu_btns {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  height: 30rem;
-}
-
-.section_container_progress_menu_btns button {
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-.section_container_progress_note {
-  width: 100%;
-  height: 30rem;
-}
-
-.section_container_progress_note_list {
-  width: 100%;
-  height: 30rem;
-}
-
-.section_container_progress_note_list li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.section_container_progress_note_list li div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 0.2rem solid #fff;
-  border-radius: 0.5rem;
-  height: 5rem;
-  width: 95%;
-  margin-top: 1rem;
-  padding: 1rem;
-}
-.section_container_progress_note_list li div h2 {
-  font-size: 2rem;
-  color: #fff;
-}
-
-.section_container_progress_note_list li div button {
-  background: none;
-  border: none;
-}
-
-.section_container_progress_note_list li div button i {
-  font-size: 2rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.section_container_finish {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 80%;
-  height: 40rem;
-  background: #f24a72;
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #000;
-  border-radius: 0.5rem;
-}
-
-.section_container_finish_header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-}
-
-.section_container_finish_header h2 {
-  font-size: 3rem;
-  padding-left: 1rem;
-  color: #fff;
-}
-
-.section_container_finish_header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.section_container_finish_header button i {
-  padding-right: 1rem;
-  font-size: 3rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.section_container_finish_input {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-}
-
-.section_container_finish_input input {
-  font-size: 3rem;
-  height: 4rem;
-  width: 85%;
-  outline: none;
-  margin-left: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-.section_container_finish_input button {
-  height: 4rem;
-  width: 12.5%;
-  margin-right: 0.5rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.section_container_finish_input button i {
-  font-size: 3rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.section_container_finish_menu {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-flow: column nowrap;
-  background: #f24a72;
+  background: var(--secondary-color);
   position: absolute;
   height: 40rem;
   width: 80%;
@@ -452,7 +109,7 @@ body {
   transition: transform 1s;
 }
 
-.section_container_finish_menu_header {
+.menu__tasks__config__header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -460,19 +117,19 @@ body {
   height: 10rem;
 }
 
-.section_container_finish_menu_header button {
+.menu__tasks__config__header button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.section_container_finish_menu button i {
+.menu__tasks__config button i {
   font-size: 5rem;
-  color: #fff;
+  color: var(--white-color);
   overflow: hidden;
 }
 
-.section_container_finish_menu_btns {
+.menu__tasks__config__btns {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -480,67 +137,390 @@ body {
   height: 30rem;
 }
 
-.section_container_finish_menu_btns button {
+.menu__tasks__config__btns button {
   background: none;
   border: none;
   font-size: 3rem;
-  color: #fff;
+  color: var(--white-color);
   cursor: pointer;
 }
 
-.section_container_finish_note {
+.menu__tasks__note {
   width: 100%;
   height: 30rem;
 }
 
-.section_container_finish_note_list {
+.menu__tasks__note__list {
   width: 100%;
   height: 30rem;
 }
 
-.section_container_finish_note_list li {
+.menu__tasks__note__list li {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.section_container_finish_note_list li div {
+.menu__tasks__note__list li div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 0.2rem solid #fff;
+  border: 0.2rem solid var(--white-color);
   border-radius: 0.5rem;
   height: 5rem;
   width: 95%;
   margin-top: 1rem;
   padding: 1rem;
 }
-.section_container_finish_note_list li div h2 {
+.menu__tasks__note__list li div h2 {
   font-size: 2rem;
-  color: #fff;
+  color: var(--white-color);
 }
 
-.section_container_finish_note_list li div button {
+.menu__tasks__note__list li div button {
   background: none;
   border: none;
 }
 
-.section_container_finish_note_list li div button i {
+.menu__tasks__note__list li div button i {
   font-size: 2rem;
-  color: #fff;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.menu__progress {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80%;
+  height: 40rem;
+  background: var(--secondary-color);
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem var(--black-color);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.menu__progress__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5rem;
+}
+
+.menu__progress__header h2 {
+  font-size: 3rem;
+  padding-left: 1rem;
+  color: var(--white-color);
+}
+
+.menu__progress__header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu__progress__header button i {
+  padding-right: 1rem;
+  font-size: 3rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.menu__progress__insert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5rem;
+}
+
+.menu__progress__insert input {
+  font-size: 3rem;
+  height: 4rem;
+  width: 85%;
+  outline: none;
+  margin-left: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.menu__progress__insert button {
+  height: 4rem;
+  width: 12.5%;
+  margin-right: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.menu__progress__insert button i {
+  font-size: 3rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.menu__progress__config {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background: var(--secondary-color);
+  position: absolute;
+  height: 40rem;
+  width: 80%;
+  transform: translateY(-400%);
+  transition: transform 1s;
+}
+
+.menu__progress__config__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10rem;
+}
+
+.menu__progress__config__header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu__progress__config button i {
+  font-size: 5rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.menu__progress__config__btns {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 30rem;
+}
+
+.menu__progress__config__btns button {
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.menu__progress__note {
+  width: 100%;
+  height: 30rem;
+}
+
+.menu__progress__note__list {
+  width: 100%;
+  height: 30rem;
+}
+
+.menu__progress__note__list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__progress__note__list li div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.2rem solid var(--white-color);
+  border-radius: 0.5rem;
+  height: 5rem;
+  width: 95%;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.menu__progress__note__list li div h2 {
+  font-size: 2rem;
+  color: var(--white-color);
+}
+
+.menu__progress__note__list li div button {
+  background: none;
+  border: none;
+}
+
+.menu__progress__note__list li div button i {
+  font-size: 2rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.menu__finish {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80%;
+  height: 40rem;
+  background: var(--secondary-color);
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem var(--black-color);
+  border-radius: 0.5rem;
+}
+
+.menu__finish__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5rem;
+}
+
+.menu__finish__header h2 {
+  font-size: 3rem;
+  padding-left: 1rem;
+  color: var(--white-color);
+}
+
+.menu__finish__header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu__finish__header button i {
+  padding-right: 1rem;
+  font-size: 3rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.menu__finish__insert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5rem;
+}
+
+.menu__finish__insert input {
+  font-size: 3rem;
+  height: 4rem;
+  width: 85%;
+  outline: none;
+  margin-left: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.menu__finish__insert button {
+  height: 4rem;
+  width: 12.5%;
+  margin-right: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.menu__finish__insert button i {
+  font-size: 3rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.menu__finish__config {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background: var(--secondary-color);
+  position: absolute;
+  height: 40rem;
+  width: 80%;
+  transform: translateY(-400%);
+  transition: transform 1s;
+}
+
+.menu__finish__config__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10rem;
+}
+
+.menu__finish__config__header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu__finish__config button i {
+  font-size: 5rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.menu__finish__config__btns {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 30rem;
+}
+
+.menu__finish__config__btns button {
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.menu__finish__note {
+  width: 100%;
+  height: 30rem;
+}
+
+.menu__finish__note__list {
+  width: 100%;
+  height: 30rem;
+}
+
+.menu__finish__note__list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__finish__note__list li div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.2rem solid var(--white-color);
+  border-radius: 0.5rem;
+  height: 5rem;
+  width: 95%;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.menu__finish__note__list li div h2 {
+  font-size: 2rem;
+  color: var(--white-color);
+}
+
+.menu__finish__note__list li div button {
+  background: none;
+  border: none;
+}
+
+.menu__finish__note__list li div button i {
+  font-size: 2rem;
+  color: var(--white-color);
   overflow: hidden;
 }
 
 .line {
   text-decoration: line-through;
-  color: #333c83;
+  color: var(--primary-color);
 }
 
 .menu {
   transform: translateY(0%);
 }
 
-.footer_container {
+.footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -549,7 +529,7 @@ body {
   width: 100%;
 }
 
-.footer_container div {
+.footer div {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -557,113 +537,113 @@ body {
   width: 80%;
 }
 
-.footer_container div h2 {
+.footer div h2 {
   align-self: center;
-  color: #fff;
+  color: var(--white-color);
   font-size: 3rem;
 }
 
-.footer_container div p {
+.footer div p {
   padding: 0.5rem;
   text-align: justify;
-  color: #fff;
+  color: var(--white-color);
   font-size: 1.5rem;
 }
 
 @media screen and (min-width: 1024px) {
-  .section_container {
+  .menus__todos {
     align-items: flex-start;
     justify-content: space-evenly;
     flex-flow: row wrap;
     height: 60rem;
   }
 
-  .section_container_tasks {
-    width: 20%;
+  .menu__tasks {
+    width: 30%;
     height: 60rem;
     margin-bottom: 0rem;
   }
 
-  .section_container_progress {
-    width: 20%;
+  .menu__progress {
+    width: 30%;
     height: 60rem;
     margin-bottom: 0rem;
   }
 
-  .section_container_finish {
-    width: 20%;
+  .menu__finish {
+    width: 30%;
     height: 60rem;
     margin-bottom: 0rem;
   }
 
-  .section_container_tasks_note {
+  .menu__tasks__note {
     height: 100%;
   }
 
-  .section_container_tasks_note_list {
+  .menu__tasks__note__list {
     height: 100%;
   }
 
-  .section_container_progress_note {
+  .menu__progress__note {
     height: 100%;
   }
 
-  .section_container_progress_note_list {
+  .menu__progress__note__list {
     height: 100%;
   }
 
-  .section_container_finish_note {
+  .menu__finish__note {
     height: 100%;
   }
 
-  .section_container_finish_note_list {
+  .menu__finish__note__list {
     height: 100%;
   }
 
-  .section_container_tasks_note_list li div button {
+  .menu__tasks__note__list li div button {
     display: none;
   }
 
-  .section_container_progress_note_list li div button {
+  .menu__progress__note__list li div button {
     display: none;
   }
 
-  .section_container_finish_note_list li div button {
+  .menu__finish__note__list li div button {
     display: none;
   }
 
-  .section_container_tasks_note_list li div {
+  .menu__tasks__note__list li div {
     justify-content: center;
   }
 
-  .section_container_progress_note_list li div {
+  .menu__progress__note__list li div {
     justify-content: center;
   }
 
-  .section_container_finish_note_list li div {
+  .menu__finish__note__list li div {
     justify-content: center;
   }
 
-  .section_container_tasks_menu {
+  .menu__tasks__config {
     height: 60rem;
-    width: 20%;
+    width: 30%;
   }
 
-  .section_container_progress_menu {
+  .menu__progress__config {
     height: 60rem;
-    width: 20%;
+    width: 30%;
   }
 
-  .section_container_finish_menu {
+  .menu__finish__config {
     height: 60rem;
-    width: 20%;
+    width: 30%;
   }
 
-  .footer_container {
+  .footer {
     height: 12rem;
   }
 
-  .footer_container div p {
+  .footer div p {
     align-self: center;
     padding: 0rem;
   }
