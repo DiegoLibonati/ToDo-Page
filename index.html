@@ -23,49 +23,56 @@
     ></script>
   </head>
   <body oncontextmenu="return false">
-    <header class="header">
-      <div class="header__wrapper">
-        <h1>ToDo APP</h1>
+    <header class="header-wrapper">
+      <div class="header-wrapper__title">
+        <h1 class="header-wrapper__title-text">ToDo APP</h1>
       </div>
     </header>
 
-    <main>
-      <section class="menus__todos">
-        <article class="menu__tasks" id="tasks">
-          <div class="menu__tasks__header">
-            <h2>TASKS TO DO</h2>
+    <main class="main-app">
+      <section class="menus">
+        <article class="menus__menu" id="tasks">
+          <div class="menus__menu-header">
+            <h2 class="menus__menu-header-title">TASKS TO DO</h2>
 
-            <button class="menu__open" aria-label="open menu tasks">
-              <i class="fa-solid fa-chevron-down"></i>
+            <button
+              class="menus__menu-header-btn-open"
+              aria-label="open menu tasks"
+            >
+              <i
+                class="fa-solid fa-chevron-down menus__menu-header-btn-open-icon"
+              ></i>
             </button>
           </div>
 
-          <div class="menu__tasks__insert">
-            <input type="text" />
+          <form class="menus__menu-form">
+            <input type="text" class="menus__menu-form-input" />
             <button
-              type="button"
-              class="btn__accept"
+              type="submit"
+              class="menus__menu-form-btn-accept"
               aria-label="button accept tasks"
             >
-              <i class="fa-solid fa-check"></i>
+              <i class="fa-solid fa-check menus__menu-form-btn-accept-icon"></i>
             </button>
-          </div>
+          </form>
 
-          <div class="menu__tasks__config">
-            <div class="menu__tasks__config__header">
+          <div class="menus__menu-config menus__menu-config-tasks">
+            <div class="menus__menu-config-header">
               <button
                 type="button"
-                class="menu__close"
+                class="menus__menu-config-header-btn-close"
                 aria-label="close menu tasks"
               >
-                <i class="fa-solid fa-chevron-up"></i>
+                <i
+                  class="fa-solid fa-chevron-up menus__menu-config-header-btn-close-icon"
+                ></i>
               </button>
             </div>
 
-            <div class="menu__tasks__config__btns">
+            <div class="menus__menu-config-actions">
               <button
                 type="button"
-                class="clear__all__tasks"
+                class="menus__menu-config-actions-btn-clear-all-tasks"
                 aria-label="clear all tasks tasks"
               >
                 CLEAR ALL TASKS
@@ -73,113 +80,133 @@
             </div>
           </div>
 
-          <div class="menu__tasks__note">
-            <ul class="menu__tasks__note__list list"></ul>
+          <div class="menus__menu-note">
+            <ul class="menus__menu-note-list menus__menu-note-list-tasks"></ul>
           </div>
         </article>
 
-        <article class="menu__progress" id="progress">
-          <div class="menu__progress__header">
-            <h2>IN PROGRESS</h2>
+        <article class="menus__menu" id="progress">
+          <div class="menus__menu-header">
+            <h2 class="menus__menu-header-title">IN PROGRESS</h2>
 
-            <button class="menu__open" aria-label="open menu in progress">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-          </div>
-
-          <div class="menu__progress__insert">
-            <input type="text" />
             <button
-              type="button"
-              class="btn__accept"
-              aria-label="button accept in progress"
+              class="menus__menu-header-btn-open"
+              aria-label="open menu progress"
             >
-              <i class="fa-solid fa-check"></i>
+              <i
+                class="fa-solid fa-chevron-down menus__menu-header-btn-open-icon"
+              ></i>
             </button>
           </div>
 
-          <div class="menu__progress__config">
-            <div class="menu__progress__config__header">
+          <form class="menus__menu-form">
+            <input type="text" class="menus__menu-form-input" />
+            <button
+              type="submit"
+              class="menus__menu-form-btn-accept"
+              aria-label="button accept progress"
+            >
+              <i class="fa-solid fa-check menus__menu-form-btn-accept-icon"></i>
+            </button>
+          </form>
+
+          <div class="menus__menu-config menus__menu-config-progress">
+            <div class="menus__menu-config-header">
               <button
                 type="button"
-                class="menu__close"
-                aria-label="close menu in progress"
+                class="menus__menu-config-header-btn-close"
+                aria-label="close menu progress"
               >
-                <i class="fa-solid fa-chevron-up"></i>
+                <i
+                  class="fa-solid fa-chevron-up menus__menu-config-header-btn-close-icon"
+                ></i>
               </button>
             </div>
 
-            <div class="menu__progress__config__btns">
+            <div class="menus__menu-config-actions">
               <button
                 type="button"
-                class="clear__all__tasks"
-                aria-label="clear all tasks in progress"
+                class="menus__menu-config-actions-btn-clear-all-tasks"
+                aria-label="clear all tasks progress"
               >
                 CLEAR ALL TASKS
               </button>
             </div>
           </div>
 
-          <div class="menu__progress__note">
-            <ul class="menu__progress__note__list list"></ul>
+          <div class="menus__menu-note">
+            <ul
+              class="menus__menu-note-list menus__menu-note-list-progress"
+            ></ul>
           </div>
         </article>
 
-        <article class="menu__finish" id="finish">
-          <div class="menu__finish__header">
-            <h2>DONE</h2>
+        <article class="menus__menu" id="finish">
+          <div class="menus__menu-header">
+            <h2 class="menus__menu-header-title">FINISH</h2>
 
-            <button class="menu__open" aria-label="open menu done">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-          </div>
-
-          <div class="menu__finish__insert">
-            <input type="text" />
             <button
-              type="button"
-              class="btn__accept"
-              aria-label="btn accept done"
+              class="menus__menu-header-btn-open"
+              aria-label="open menu finish"
             >
-              <i class="fa-solid fa-check"></i>
+              <i
+                class="fa-solid fa-chevron-down menus__menu-header-btn-open-icon"
+              ></i>
             </button>
           </div>
 
-          <div class="menu__finish__config">
-            <div class="menu__finish__config__header">
+          <form class="menus__menu-form">
+            <input type="text" class="menus__menu-form-input" />
+            <button
+              type="submit"
+              class="menus__menu-form-btn-accept"
+              aria-label="button accept finish"
+            >
+              <i class="fa-solid fa-check menus__menu-form-btn-accept-icon"></i>
+            </button>
+          </form>
+
+          <div class="menus__menu-config menus__menu-config-finish">
+            <div class="menus__menu-config-header">
               <button
                 type="button"
-                class="menu__close"
-                aria-label="close menu done"
+                class="menus__menu-config-header-btn-close"
+                aria-label="close menu finish"
               >
-                <i class="fa-solid fa-chevron-up"></i>
+                <i
+                  class="fa-solid fa-chevron-up menus__menu-config-header-btn-close-icon"
+                ></i>
               </button>
             </div>
 
-            <div class="menu__finish__config__btns">
+            <div class="menus__menu-config-actions">
               <button
                 type="button"
-                class="clear__all__tasks"
-                aria-label="clear all tasks done"
+                class="menus__menu-config-actions-btn-clear-all-tasks"
+                aria-label="clear all tasks finish"
               >
                 CLEAR ALL TASKS
               </button>
             </div>
           </div>
 
-          <div class="menu__finish__note">
-            <ul class="menu__finish__note__list list"></ul>
+          <div class="menus__menu-note">
+            <ul class="menus__menu-note-list menus__menu-note-list-finish"></ul>
           </div>
         </article>
       </section>
     </main>
 
-    <footer class="footer">
-      <div>
-        <h2>Instruccions:</h2>
-        <p>[MOUSE RIGHT CLICK] - DELETE</p>
-        <p>[MOUSE SCROLL CLICK] - CROSS OUT</p>
-        <p>[MOUSE LEFT CLICK HOLD] - DRAG AND DROP</p>
+    <footer class="footer-wrapper">
+      <div class="footer-wrapper__content">
+        <h2 class="footer-wrapper__content-title">Instruccions:</h2>
+        <p class="footer-wrapper__content-text">[MOUSE RIGHT CLICK] - DELETE</p>
+        <p class="footer-wrapper__content-text">
+          [MOUSE SCROLL CLICK] - CROSS OUT
+        </p>
+        <p class="footer-wrapper__content-text">
+          [MOUSE LEFT CLICK HOLD] - DRAG AND DROP
+        </p>
       </div>
     </footer>
 

@@ -8,11 +8,15 @@ import { setLocalStorage } from "./helpers/setLocalStorage";
 
 import { LOCAL_STORAGE_TASKS_KEY } from "./constants/constants";
 
-const handleClickAccept = (button: HTMLButtonElement) => {
-  const input = button.parentElement?.children[0] as HTMLInputElement;
+const handleClickAccept = (e: MouseEvent) => {
+  e.preventDefault();
+
+  const target = e.currentTarget as HTMLButtonElement;
+
+  const input = target.parentElement?.children[0] as HTMLInputElement;
 
   const idTask = uuidv4();
-  const categoryTask = button.parentElement?.parentElement?.id || "";
+  const categoryTask = target.parentElement?.parentElement?.id || "";
   const valueTask = input.value;
   const completeTask = false;
 
@@ -36,14 +40,16 @@ const handleClickHeader = (e: Event) => {
   const target = e.currentTarget as HTMLElement;
   const menuContainer = target?.parentElement?.parentElement?.children[2];
 
-  menuContainer?.classList.add("menu");
+  console.log(menuContainer);
+
+  menuContainer?.classList.add("menus__menu-config--open");
 };
 
 const handleCloseHeader = (e: Event) => {
   const target = e.currentTarget as HTMLElement;
   const menuContainer = target?.parentElement?.parentElement;
 
-  menuContainer?.classList.remove("menu");
+  menuContainer?.classList.remove("menus__menu-config--open");
 };
 
 const handleClearAllTasks = (e: Event) => {
@@ -89,8 +95,9 @@ const handleCompleteTask = (e: MouseEvent): void => {
   const li = e.currentTarget as HTMLElement;
   const idTaskElement = li?.id;
 
-  if (li.classList.contains("line")) li?.classList.remove("line");
-  else li?.classList.add("line");
+  if (li.classList.contains("menus__menu-note-list-item--line"))
+    li?.classList.remove("menus__menu-note-list-item--line");
+  else li?.classList.add("menus__menu-note-list-item--line");
 
   const newList = tasks.map((task) => {
     if (task.id === idTaskElement?.split("/")[1]) {
@@ -156,15 +163,16 @@ const handleDrop = (e: Event) => {
 // Con cada click, se genera un LI en la respectiva categoria
 const insertTaskInContainer = (task: Task): void => {
   const container = document.querySelector(
-    `.menu__${task.category}__note__list`
+    `.menus__menu-note-list-${task.category}`
   );
 
   const containerTask = document.createElement("li");
   containerTask.draggable = true;
-  containerTask.classList.add("li");
+  containerTask.classList.add("menus__menu-note-list-item");
   containerTask.id = `${task.category}/${task.id}`;
 
-  if (task.complete) containerTask.classList.add("line");
+  if (task.complete)
+    containerTask.classList.add("menus__menu-note-list-item--line");
 
   containerTask.addEventListener("mousedown", (e) => handleMouseDown(e));
   containerTask.addEventListener("dragstart", (e) => handleDragStart(e));
@@ -173,19 +181,27 @@ const insertTaskInContainer = (task: Task): void => {
   );
 
   const containerTaskDiv = document.createElement("div");
+  containerTaskDiv.classList.add("menus__menu-note-list-item-wrapper");
 
   const taskText = document.createElement("h2");
+  taskText.classList.add("menus__menu-note-list-item-wrapper-text");
   taskText.textContent = task.text;
 
   const buttonDelete = document.createElement("button");
   buttonDelete.setAttribute("type", "button");
   buttonDelete.setAttribute("aria-label", `delete task ${task.id}`);
-  buttonDelete.classList.add("deleteTask");
+  buttonDelete.classList.add(
+    "deleteTask",
+    "menus__menu-note-list-item-wrapper-btn-delete"
+  );
 
   buttonDelete.addEventListener("click", (e) => handleDeleteTask(e));
 
   const iconDelete = document.createElement("i");
-  iconDelete.setAttribute("class", "fa-solid fa-trash");
+  iconDelete.setAttribute(
+    "class",
+    "fa-solid fa-trash menus__menu-note-list-item-wrapper-btn-delete-icon"
+  );
 
   buttonDelete.append(iconDelete);
 
@@ -223,7 +239,7 @@ const onInit = () => {
   tasksBtnsAccept.forEach((tasksBtnAccept) => {
     const button = tasksBtnAccept as HTMLButtonElement;
 
-    button.addEventListener("click", () => handleClickAccept(button));
+    button.addEventListener("click", (e) => handleClickAccept(e));
   });
 
   tasksBtnsHeader.forEach((taskBtnHeader) =>

@@ -1,9 +1,9 @@
-.header {
+.header-wrapper {
   width: 100%;
   height: 20rem;
 }
 
-.header__wrapper {
+.header-wrapper__title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,12 +11,12 @@
   height: 20rem;
 }
 
-.header h1 {
+.header-wrapper__title-text {
   font-size: 7rem;
   color: var(--white-color);
 }
 
-.menus__todos {
+.menus {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@
   height: 123rem;
 }
 
-.menu__tasks {
+.menus__menu {
   display: flex;
   flex-flow: column nowrap;
   width: 80%;
@@ -37,7 +37,7 @@
   margin-bottom: 1rem;
 }
 
-.menu__tasks__header {
+.menus__menu-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,26 +45,26 @@
   height: 5rem;
 }
 
-.menu__tasks__header h2 {
+.menus__menu-header-title {
   font-size: 3rem;
   padding-left: 1rem;
   color: var(--white-color);
 }
 
-.menu__tasks__header button {
+.menus__menu-header-btn-open {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.menu__tasks__header button i {
+.menus__menu-header-btn-open-icon {
   padding-right: 1rem;
   font-size: 3rem;
   color: var(--white-color);
   overflow: hidden;
 }
 
-.menu__tasks__insert {
+.menus__menu-form {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -72,7 +72,7 @@
   height: 5rem;
 }
 
-.menu__tasks__insert input {
+.menus__menu-form-input {
   font-size: 3rem;
   height: 4rem;
   width: 85%;
@@ -81,7 +81,7 @@
   border-radius: 0.5rem;
 }
 
-.menu__tasks__insert button {
+.menus__menu-form-btn-accept {
   height: 4rem;
   width: 12.5%;
   margin-right: 0.5rem;
@@ -90,13 +90,13 @@
   cursor: pointer;
 }
 
-.menu__tasks__insert button i {
+.menus__menu-form-btn-accept-icon {
   font-size: 3rem;
   color: var(--white-color);
   overflow: hidden;
 }
 
-.menu__tasks__config {
+.menus__menu-config {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -109,7 +109,11 @@
   transition: transform 1s;
 }
 
-.menu__tasks__config__header {
+.menus__menu-config--open {
+  transform: translateY(0%);
+}
+
+.menus__menu-config-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,19 +121,19 @@
   height: 10rem;
 }
 
-.menu__tasks__config__header button {
+.menus__menu-config-header-btn-close {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.menu__tasks__config button i {
+.menus__menu-config-header-btn-close-icon {
   font-size: 5rem;
   color: var(--white-color);
   overflow: hidden;
 }
 
-.menu__tasks__config__btns {
+.menus__menu-config-actions {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -137,7 +141,7 @@
   height: 30rem;
 }
 
-.menu__tasks__config__btns button {
+.menus__menu-config-actions-btn-clear-all-tasks {
   background: none;
   border: none;
   font-size: 3rem;
@@ -145,382 +149,58 @@
   cursor: pointer;
 }
 
-.menu__tasks__note {
+.menus__menu-note {
   width: 100%;
   height: 30rem;
 }
 
-.menu__tasks__note__list {
+.menus__menu-note-list {
   width: 100%;
   height: 30rem;
+  padding-bottom: 1rem;
+  overflow: auto;
 }
 
-.menu__tasks__note__list li {
+.menus__menu-note-list-item {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.menu__tasks__note__list li div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 0.2rem solid var(--white-color);
-  border-radius: 0.5rem;
-  height: 5rem;
-  width: 95%;
-  margin-top: 1rem;
-  padding: 1rem;
-}
-.menu__tasks__note__list li div h2 {
-  font-size: 2rem;
-  color: var(--white-color);
-}
-
-.menu__tasks__note__list li div button {
-  background: none;
-  border: none;
-}
-
-.menu__tasks__note__list li div button i {
-  font-size: 2rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.menu__progress {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 80%;
-  height: 40rem;
-  background: var(--secondary-color);
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem var(--black-color);
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.menu__progress__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-}
-
-.menu__progress__header h2 {
-  font-size: 3rem;
-  padding-left: 1rem;
-  color: var(--white-color);
-}
-
-.menu__progress__header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menu__progress__header button i {
-  padding-right: 1rem;
-  font-size: 3rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.menu__progress__insert {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-}
-
-.menu__progress__insert input {
-  font-size: 3rem;
-  height: 4rem;
-  width: 85%;
-  outline: none;
-  margin-left: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-.menu__progress__insert button {
-  height: 4rem;
-  width: 12.5%;
-  margin-right: 0.5rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.menu__progress__insert button i {
-  font-size: 3rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.menu__progress__config {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-flow: column nowrap;
-  background: var(--secondary-color);
-  position: absolute;
-  height: 40rem;
-  width: 80%;
-  transform: translateY(-400%);
-  transition: transform 1s;
-}
-
-.menu__progress__config__header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 10rem;
-}
-
-.menu__progress__config__header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menu__progress__config button i {
-  font-size: 5rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.menu__progress__config__btns {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  height: 30rem;
-}
-
-.menu__progress__config__btns button {
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: var(--white-color);
-  cursor: pointer;
-}
-
-.menu__progress__note {
-  width: 100%;
-  height: 30rem;
-}
-
-.menu__progress__note__list {
-  width: 100%;
-  height: 30rem;
-}
-
-.menu__progress__note__list li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu__progress__note__list li div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 0.2rem solid var(--white-color);
-  border-radius: 0.5rem;
-  height: 5rem;
-  width: 95%;
-  margin-top: 1rem;
-  padding: 1rem;
-}
-.menu__progress__note__list li div h2 {
-  font-size: 2rem;
-  color: var(--white-color);
-}
-
-.menu__progress__note__list li div button {
-  background: none;
-  border: none;
-}
-
-.menu__progress__note__list li div button i {
-  font-size: 2rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.menu__finish {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 80%;
-  height: 40rem;
-  background: var(--secondary-color);
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem var(--black-color);
-  border-radius: 0.5rem;
-}
-
-.menu__finish__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-}
-
-.menu__finish__header h2 {
-  font-size: 3rem;
-  padding-left: 1rem;
-  color: var(--white-color);
-}
-
-.menu__finish__header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menu__finish__header button i {
-  padding-right: 1rem;
-  font-size: 3rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.menu__finish__insert {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 5rem;
-}
-
-.menu__finish__insert input {
-  font-size: 3rem;
-  height: 4rem;
-  width: 85%;
-  outline: none;
-  margin-left: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-.menu__finish__insert button {
-  height: 4rem;
-  width: 12.5%;
-  margin-right: 0.5rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.menu__finish__insert button i {
-  font-size: 3rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.menu__finish__config {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-flow: column nowrap;
-  background: var(--secondary-color);
-  position: absolute;
-  height: 40rem;
-  width: 80%;
-  transform: translateY(-400%);
-  transition: transform 1s;
-}
-
-.menu__finish__config__header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 10rem;
-}
-
-.menu__finish__config__header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menu__finish__config button i {
-  font-size: 5rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.menu__finish__config__btns {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  height: 30rem;
-}
-
-.menu__finish__config__btns button {
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: var(--white-color);
-  cursor: pointer;
-}
-
-.menu__finish__note {
-  width: 100%;
-  height: 30rem;
-}
-
-.menu__finish__note__list {
-  width: 100%;
-  height: 30rem;
-}
-
-.menu__finish__note__list li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu__finish__note__list li div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 0.2rem solid var(--white-color);
-  border-radius: 0.5rem;
-  height: 5rem;
-  width: 95%;
-  margin-top: 1rem;
-  padding: 1rem;
-}
-.menu__finish__note__list li div h2 {
-  font-size: 2rem;
-  color: var(--white-color);
-}
-
-.menu__finish__note__list li div button {
-  background: none;
-  border: none;
-}
-
-.menu__finish__note__list li div button i {
-  font-size: 2rem;
-  color: var(--white-color);
-  overflow: hidden;
-}
-
-.line {
+.menus__menu-note-list-item--line {
   text-decoration: line-through;
   color: var(--primary-color);
 }
 
-.menu {
-  transform: translateY(0%);
+.menus__menu-note-list-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.2rem solid var(--white-color);
+  border-radius: 0.5rem;
+  height: 5rem;
+  width: 95%;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
-.footer {
+.menus__menu-note-list-item-wrapper-text {
+  font-size: 2rem;
+  color: var(--white-color);
+}
+
+.menus__menu-note-list-item-wrapper-btn-delete {
+  background: none;
+  border: none;
+}
+
+.menus__menu-note-list-item-wrapper-btn-delete-icon {
+  font-size: 2rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+.footer-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -529,7 +209,7 @@
   width: 100%;
 }
 
-.footer div {
+.footer-wrapper__content {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -537,13 +217,13 @@
   width: 80%;
 }
 
-.footer div h2 {
+.footer-wrapper__content-title {
   align-self: center;
   color: var(--white-color);
   font-size: 3rem;
 }
 
-.footer div p {
+.footer-wrapper__content-text {
   padding: 0.5rem;
   text-align: justify;
   color: var(--white-color);
@@ -551,99 +231,45 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .menus__todos {
+  .menus {
     align-items: flex-start;
     justify-content: space-evenly;
     flex-flow: row wrap;
     height: 60rem;
   }
 
-  .menu__tasks {
+  .menus__menu {
     width: 30%;
     height: 60rem;
     margin-bottom: 0rem;
   }
 
-  .menu__progress {
-    width: 30%;
-    height: 60rem;
-    margin-bottom: 0rem;
-  }
-
-  .menu__finish {
-    width: 30%;
-    height: 60rem;
-    margin-bottom: 0rem;
-  }
-
-  .menu__tasks__note {
+  .menus__menu-note {
     height: 100%;
   }
 
-  .menu__tasks__note__list {
-    height: 100%;
+  .menus__menu-note-list {
+    height: calc(100% - 2.7rem);
   }
 
-  .menu__progress__note {
-    height: 100%;
-  }
-
-  .menu__progress__note__list {
-    height: 100%;
-  }
-
-  .menu__finish__note {
-    height: 100%;
-  }
-
-  .menu__finish__note__list {
-    height: 100%;
-  }
-
-  .menu__tasks__note__list li div button {
-    display: none;
-  }
-
-  .menu__progress__note__list li div button {
-    display: none;
-  }
-
-  .menu__finish__note__list li div button {
-    display: none;
-  }
-
-  .menu__tasks__note__list li div {
+  .menus__menu-note-list-item-wrapper {
     justify-content: center;
   }
 
-  .menu__progress__note__list li div {
-    justify-content: center;
+  .menus__menu-note-list-item-wrapper-btn-delete {
+    display: none;
   }
 
-  .menu__finish__note__list li div {
-    justify-content: center;
-  }
-
-  .menu__tasks__config {
+  .menus__menu-config {
     height: 60rem;
     width: 30%;
   }
 
-  .menu__progress__config {
-    height: 60rem;
-    width: 30%;
-  }
-
-  .menu__finish__config {
-    height: 60rem;
-    width: 30%;
-  }
-
-  .footer {
+  .footer-wrapper {
     height: 12rem;
   }
 
-  .footer div p {
+  .footer-wrapper__content-text {
     align-self: center;
     padding: 0rem;
   }

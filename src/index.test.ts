@@ -36,7 +36,7 @@ describe("index.ts", () => {
 
       const column = document.getElementById(idColumn) as HTMLElement;
       const listTasks = document.querySelector(
-        `.menu__${idColumn}__note__list`
+        `.menus__menu-note-list-${idColumn}`
       );
 
       expect(column).toBeInTheDocument();
@@ -52,7 +52,7 @@ describe("index.ts", () => {
       expect(input).toHaveValue(valueText);
 
       const btnAddTask = column.querySelector(
-        ".btn__accept"
+        ".menus__menu-form-btn-accept"
       ) as HTMLButtonElement;
 
       expect(btnAddTask).toBeInTheDocument();
@@ -68,7 +68,7 @@ describe("index.ts", () => {
 
       const column = document.getElementById(idColumn) as HTMLElement;
       const listTasks = document.querySelector(
-        `.menu__${idColumn}__note__list`
+        `.menus__menu-note-list-${idColumn}`
       );
 
       expect(column).toBeInTheDocument();
@@ -84,7 +84,7 @@ describe("index.ts", () => {
       expect(input).toHaveValue(valueText);
 
       const btnAddTask = column.querySelector(
-        ".btn__accept"
+        ".menus__menu-form-btn-accept"
       ) as HTMLButtonElement;
 
       expect(btnAddTask).toBeInTheDocument();
@@ -96,15 +96,21 @@ describe("index.ts", () => {
       const task = screen.getByRole("listitem");
 
       expect(task).toBeInTheDocument();
-      expect(task.classList.contains("line")).toBeFalsy();
+      expect(
+        task.classList.contains("menus__menu-note-list-item--line")
+      ).toBeFalsy();
 
       await user.click(task);
 
-      expect(task.classList.contains("line")).toBeTruthy();
+      expect(
+        task.classList.contains("menus__menu-note-list-item--line")
+      ).toBeTruthy();
 
       await user.click(task);
 
-      expect(task.classList.contains("line")).toBeFalsy();
+      expect(
+        task.classList.contains("menus__menu-note-list-item--line")
+      ).toBeFalsy();
     });
 
     test("It must delete a task when you right click.", async () => {
@@ -113,7 +119,7 @@ describe("index.ts", () => {
 
       const column = document.getElementById(idColumn) as HTMLElement;
       const listTasks = document.querySelector(
-        `.menu__${idColumn}__note__list`
+        `.menus__menu-note-list-${idColumn}`
       );
 
       expect(column).toBeInTheDocument();
@@ -129,7 +135,7 @@ describe("index.ts", () => {
       expect(input).toHaveValue(valueText);
 
       const btnAddTask = column.querySelector(
-        ".btn__accept"
+        ".menus__menu-form-btn-accept"
       ) as HTMLButtonElement;
 
       expect(btnAddTask).toBeInTheDocument();
@@ -155,7 +161,7 @@ describe("index.ts", () => {
       const idColumn = "tasks";
 
       const menu = document.querySelector(
-        `.menu__${idColumn}__config`
+        `.menus__menu-config-${idColumn}`
       ) as HTMLDivElement;
       const btnOpenMenu = screen.getByRole("button", {
         name: `open menu ${idColumn}`,
@@ -165,17 +171,17 @@ describe("index.ts", () => {
       });
 
       expect(menu).toBeInTheDocument();
-      expect(menu.classList.contains("menu")).toBeFalsy();
+      expect(menu.classList.contains("menus__menu-config--open")).toBeFalsy();
       expect(btnOpenMenu).toBeInTheDocument();
       expect(btnCloseMenu).toBeInTheDocument();
 
       await user.click(btnOpenMenu);
 
-      expect(menu.classList.contains("menu")).toBeTruthy();
+      expect(menu.classList.contains("menus__menu-config--open")).toBeTruthy();
 
       await user.click(btnCloseMenu);
 
-      expect(menu.classList.contains("menu")).toBeFalsy();
+      expect(menu.classList.contains("menus__menu-config--open")).toBeFalsy();
     });
 
     test("It must clear all tasks from the To Do column when you click 'Clear All Tasks'.", async () => {
@@ -184,7 +190,7 @@ describe("index.ts", () => {
 
       const column = document.getElementById(idColumn) as HTMLElement;
       const listTasks = document.querySelector(
-        `.menu__${idColumn}__note__list`
+        `.menus__menu-note-list-${idColumn}`
       );
       const btnClearAllTasks = screen.getByRole("button", {
         name: `clear all tasks ${idColumn}`,
@@ -203,7 +209,7 @@ describe("index.ts", () => {
       expect(input).toHaveValue(valueText);
 
       const btnAddTask = column.querySelector(
-        ".btn__accept"
+        ".menus__menu-form-btn-accept"
       ) as HTMLButtonElement;
 
       expect(btnAddTask).toBeInTheDocument();
