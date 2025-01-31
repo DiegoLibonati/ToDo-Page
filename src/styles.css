@@ -3,7 +3,7 @@
   height: 20rem;
 }
 
-.header-wrapper__title {
+.header-wrapper__content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,7 @@
   height: 20rem;
 }
 
-.header-wrapper__title-text {
+.header-wrapper__title {
   font-size: 7rem;
   color: var(--white-color);
 }
@@ -26,7 +26,7 @@
   height: 123rem;
 }
 
-.menus__menu {
+.menu {
   display: flex;
   flex-flow: column nowrap;
   width: 80%;
@@ -37,7 +37,7 @@
   margin-bottom: 1rem;
 }
 
-.menus__menu-header {
+.menu__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,26 +45,26 @@
   height: 5rem;
 }
 
-.menus__menu-header-title {
+.menu__title {
   font-size: 3rem;
   padding-left: 1rem;
   color: var(--white-color);
 }
 
-.menus__menu-header-btn-open {
+.menu__btn-open-menu {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.menus__menu-header-btn-open-icon {
+.menu__btn-open-menu-icon {
   padding-right: 1rem;
   font-size: 3rem;
   color: var(--white-color);
   overflow: hidden;
 }
 
-.menus__menu-form {
+.menu__form {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -72,7 +72,7 @@
   height: 5rem;
 }
 
-.menus__menu-form-input {
+.menu__form-input {
   font-size: 3rem;
   height: 4rem;
   width: 85%;
@@ -81,7 +81,7 @@
   border-radius: 0.5rem;
 }
 
-.menus__menu-form-btn-accept {
+.menu__form-btn-accept {
   height: 4rem;
   width: 12.5%;
   margin-right: 0.5rem;
@@ -90,13 +90,13 @@
   cursor: pointer;
 }
 
-.menus__menu-form-btn-accept-icon {
+.menu__form-btn-accept-icon {
   font-size: 3rem;
   color: var(--white-color);
   overflow: hidden;
 }
 
-.menus__menu-config {
+.menu__config {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -109,11 +109,11 @@
   transition: transform 1s;
 }
 
-.menus__menu-config--open {
+.menu__config--open {
   transform: translateY(0%);
 }
 
-.menus__menu-config-header {
+.menu__config-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,19 +121,19 @@
   height: 10rem;
 }
 
-.menus__menu-config-header-btn-close {
+.menu__config-header-btn-close {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.menus__menu-config-header-btn-close-icon {
+.menu__config-header-btn-close-icon {
   font-size: 5rem;
   color: var(--white-color);
   overflow: hidden;
 }
 
-.menus__menu-config-actions {
+.menu__config-actions {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -141,7 +141,7 @@
   height: 30rem;
 }
 
-.menus__menu-config-actions-btn-clear-all-tasks {
+.menu__config-actions-btn-clear-all-tasks {
   background: none;
   border: none;
   font-size: 3rem;
@@ -149,30 +149,30 @@
   cursor: pointer;
 }
 
-.menus__menu-note {
+.menu__note {
   width: 100%;
   height: 30rem;
 }
 
-.menus__menu-note-list {
+.menu__note-list {
   width: 100%;
   height: 30rem;
   padding-bottom: 1rem;
   overflow: auto;
 }
 
-.menus__menu-note-list-item {
+.menu__note-list-item {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.menus__menu-note-list-item--line {
+.menu__note-list-item--line {
   text-decoration: line-through;
   color: var(--primary-color);
 }
 
-.menus__menu-note-list-item-wrapper {
+.menu__note-list-item-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -184,17 +184,17 @@
   padding: 1rem;
 }
 
-.menus__menu-note-list-item-wrapper-text {
+.menu__note-list-item-wrapper-text {
   font-size: 2rem;
   color: var(--white-color);
 }
 
-.menus__menu-note-list-item-wrapper-btn-delete {
+.menu__note-list-item-wrapper-btn-delete {
   background: none;
   border: none;
 }
 
-.menus__menu-note-list-item-wrapper-btn-delete-icon {
+.menu__note-list-item-wrapper-btn-delete-icon {
   font-size: 2rem;
   color: var(--white-color);
   overflow: hidden;
@@ -217,13 +217,13 @@
   width: 80%;
 }
 
-.footer-wrapper__content-title {
+.footer-wrapper__title {
   align-self: center;
   color: var(--white-color);
   font-size: 3rem;
 }
 
-.footer-wrapper__content-text {
+.footer-wrapper__text {
   padding: 0.5rem;
   text-align: justify;
   color: var(--white-color);
@@ -238,29 +238,29 @@
     height: 60rem;
   }
 
-  .menus__menu {
+  .menu {
     width: 30%;
     height: 60rem;
     margin-bottom: 0rem;
   }
 
-  .menus__menu-note {
+  .menu__note {
     height: 100%;
   }
 
-  .menus__menu-note-list {
+  .menu__note-list {
     height: calc(100% - 2.7rem);
   }
 
-  .menus__menu-note-list-item-wrapper {
+  .menu__note-list-item-wrapper {
     justify-content: center;
   }
 
-  .menus__menu-note-list-item-wrapper-btn-delete {
+  .menu__note-list-item-wrapper-btn-delete {
     display: none;
   }
 
-  .menus__menu-config {
+  .menu__config {
     height: 60rem;
     width: 30%;
   }
@@ -269,7 +269,7 @@
     height: 12rem;
   }
 
-  .footer-wrapper__content-text {
+  .footer-wrapper__text {
     align-self: center;
     padding: 0rem;
   }

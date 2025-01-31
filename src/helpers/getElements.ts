@@ -1,9 +1,9 @@
 export const getElements = () => ({
-  tasksContainers: document.querySelectorAll(".menus__menu-note-list") as NodeList,
-  tasksBtnsAccept: document.querySelectorAll(".menus__menu-form-btn-accept") as NodeList,
-  tasksBtnsHeader: document.querySelectorAll(".menus__menu-header-btn-open") as NodeList,
-  tasksBtnsCloseHeader: document.querySelectorAll(".menus__menu-config-header-btn-close") as NodeList,
+  tasksContainers: document.querySelectorAll(".menu__note-list") as NodeList,
+  tasksBtnsAccept: document.querySelectorAll(".menu__form-btn-accept") as NodeList,
+  tasksBtnsHeader: document.querySelectorAll(".menu__btn-open-menu") as NodeList,
+  tasksBtnsCloseHeader: document.querySelectorAll(".menu__config-header-btn-close") as NodeList,
   tasksBtnsClearAllTasks: document.querySelectorAll(
-    ".menus__menu-config-actions-btn-clear-all-tasks"
+    ".menu__config-actions-btn-clear-all-tasks"
   ) as NodeList,
 });

@@ -36,7 +36,7 @@ describe("index.ts", () => {
 
       const column = document.getElementById(idColumn) as HTMLElement;
       const listTasks = document.querySelector(
-        `.menus__menu-note-list-${idColumn}`
+        `.menu__note-list-${idColumn}`
       );
 
       expect(column).toBeInTheDocument();
@@ -52,7 +52,7 @@ describe("index.ts", () => {
       expect(input).toHaveValue(valueText);
 
       const btnAddTask = column.querySelector(
-        ".menus__menu-form-btn-accept"
+        ".menu__form-btn-accept"
       ) as HTMLButtonElement;
 
       expect(btnAddTask).toBeInTheDocument();
@@ -68,7 +68,7 @@ describe("index.ts", () => {
 
       const column = document.getElementById(idColumn) as HTMLElement;
       const listTasks = document.querySelector(
-        `.menus__menu-note-list-${idColumn}`
+        `.menu__note-list-${idColumn}`
       );
 
       expect(column).toBeInTheDocument();
@@ -84,7 +84,7 @@ describe("index.ts", () => {
       expect(input).toHaveValue(valueText);
 
       const btnAddTask = column.querySelector(
-        ".menus__menu-form-btn-accept"
+        ".menu__form-btn-accept"
       ) as HTMLButtonElement;
 
       expect(btnAddTask).toBeInTheDocument();
@@ -97,19 +97,19 @@ describe("index.ts", () => {
 
       expect(task).toBeInTheDocument();
       expect(
-        task.classList.contains("menus__menu-note-list-item--line")
+        task.classList.contains("menu__note-list-item--line")
       ).toBeFalsy();
 
       await user.click(task);
 
       expect(
-        task.classList.contains("menus__menu-note-list-item--line")
+        task.classList.contains("menu__note-list-item--line")
       ).toBeTruthy();
 
       await user.click(task);
 
       expect(
-        task.classList.contains("menus__menu-note-list-item--line")
+        task.classList.contains("menu__note-list-item--line")
       ).toBeFalsy();
     });
 
@@ -119,7 +119,7 @@ describe("index.ts", () => {
 
       const column = document.getElementById(idColumn) as HTMLElement;
       const listTasks = document.querySelector(
-        `.menus__menu-note-list-${idColumn}`
+        `.menu__note-list-${idColumn}`
       );
 
       expect(column).toBeInTheDocument();
@@ -135,7 +135,7 @@ describe("index.ts", () => {
       expect(input).toHaveValue(valueText);
 
       const btnAddTask = column.querySelector(
-        ".menus__menu-form-btn-accept"
+        ".menu__form-btn-accept"
       ) as HTMLButtonElement;
 
       expect(btnAddTask).toBeInTheDocument();
@@ -161,7 +161,7 @@ describe("index.ts", () => {
       const idColumn = "tasks";
 
       const menu = document.querySelector(
-        `.menus__menu-config-${idColumn}`
+        `.menu__config-${idColumn}`
       ) as HTMLDivElement;
       const btnOpenMenu = screen.getByRole("button", {
         name: `open menu ${idColumn}`,
@@ -171,17 +171,17 @@ describe("index.ts", () => {
       });
 
       expect(menu).toBeInTheDocument();
-      expect(menu.classList.contains("menus__menu-config--open")).toBeFalsy();
+      expect(menu.classList.contains("menu__config--open")).toBeFalsy();
       expect(btnOpenMenu).toBeInTheDocument();
       expect(btnCloseMenu).toBeInTheDocument();
 
       await user.click(btnOpenMenu);
 
-      expect(menu.classList.contains("menus__menu-config--open")).toBeTruthy();
+      expect(menu.classList.contains("menu__config--open")).toBeTruthy();
 
       await user.click(btnCloseMenu);
 
-      expect(menu.classList.contains("menus__menu-config--open")).toBeFalsy();
+      expect(menu.classList.contains("menu__config--open")).toBeFalsy();
     });
 
     test("It must clear all tasks from the To Do column when you click 'Clear All Tasks'.", async () => {
@@ -190,7 +190,7 @@ describe("index.ts", () => {
 
       const column = document.getElementById(idColumn) as HTMLElement;
       const listTasks = document.querySelector(
-        `.menus__menu-note-list-${idColumn}`
+        `.menu__note-list-${idColumn}`
       );
       const btnClearAllTasks = screen.getByRole("button", {
         name: `clear all tasks ${idColumn}`,
@@ -209,7 +209,7 @@ describe("index.ts", () => {
       expect(input).toHaveValue(valueText);
 
       const btnAddTask = column.querySelector(
-        ".menus__menu-form-btn-accept"
+        ".menu__form-btn-accept"
       ) as HTMLButtonElement;
 
       expect(btnAddTask).toBeInTheDocument();

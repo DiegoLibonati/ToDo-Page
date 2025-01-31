@@ -42,14 +42,14 @@ const handleClickHeader = (e: Event) => {
 
   console.log(menuContainer);
 
-  menuContainer?.classList.add("menus__menu-config--open");
+  menuContainer?.classList.add("menu__config--open");
 };
 
 const handleCloseHeader = (e: Event) => {
   const target = e.currentTarget as HTMLElement;
   const menuContainer = target?.parentElement?.parentElement;
 
-  menuContainer?.classList.remove("menus__menu-config--open");
+  menuContainer?.classList.remove("menu__config--open");
 };
 
 const handleClearAllTasks = (e: Event) => {
@@ -95,9 +95,9 @@ const handleCompleteTask = (e: MouseEvent): void => {
   const li = e.currentTarget as HTMLElement;
   const idTaskElement = li?.id;
 
-  if (li.classList.contains("menus__menu-note-list-item--line"))
-    li?.classList.remove("menus__menu-note-list-item--line");
-  else li?.classList.add("menus__menu-note-list-item--line");
+  if (li.classList.contains("menu__note-list-item--line"))
+    li?.classList.remove("menu__note-list-item--line");
+  else li?.classList.add("menu__note-list-item--line");
 
   const newList = tasks.map((task) => {
     if (task.id === idTaskElement?.split("/")[1]) {
@@ -163,16 +163,16 @@ const handleDrop = (e: Event) => {
 // Con cada click, se genera un LI en la respectiva categoria
 const insertTaskInContainer = (task: Task): void => {
   const container = document.querySelector(
-    `.menus__menu-note-list-${task.category}`
+    `.menu__note-list-${task.category}`
   );
 
   const containerTask = document.createElement("li");
   containerTask.draggable = true;
-  containerTask.classList.add("menus__menu-note-list-item");
+  containerTask.classList.add("menu__note-list-item");
   containerTask.id = `${task.category}/${task.id}`;
 
   if (task.complete)
-    containerTask.classList.add("menus__menu-note-list-item--line");
+    containerTask.classList.add("menu__note-list-item--line");
 
   containerTask.addEventListener("mousedown", (e) => handleMouseDown(e));
   containerTask.addEventListener("dragstart", (e) => handleDragStart(e));
@@ -181,10 +181,10 @@ const insertTaskInContainer = (task: Task): void => {
   );
 
   const containerTaskDiv = document.createElement("div");
-  containerTaskDiv.classList.add("menus__menu-note-list-item-wrapper");
+  containerTaskDiv.classList.add("menu__note-list-item-wrapper");
 
   const taskText = document.createElement("h2");
-  taskText.classList.add("menus__menu-note-list-item-wrapper-text");
+  taskText.classList.add("menu__note-list-item-wrapper-text");
   taskText.textContent = task.text;
 
   const buttonDelete = document.createElement("button");
@@ -192,7 +192,7 @@ const insertTaskInContainer = (task: Task): void => {
   buttonDelete.setAttribute("aria-label", `delete task ${task.id}`);
   buttonDelete.classList.add(
     "deleteTask",
-    "menus__menu-note-list-item-wrapper-btn-delete"
+    "menu__note-list-item-wrapper-btn-delete"
   );
 
   buttonDelete.addEventListener("click", (e) => handleDeleteTask(e));
@@ -200,7 +200,7 @@ const insertTaskInContainer = (task: Task): void => {
   const iconDelete = document.createElement("i");
   iconDelete.setAttribute(
     "class",
-    "fa-solid fa-trash menus__menu-note-list-item-wrapper-btn-delete-icon"
+    "fa-solid fa-trash menu__note-list-item-wrapper-btn-delete-icon"
   );
 
   buttonDelete.append(iconDelete);
