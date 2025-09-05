@@ -1,6 +1,6 @@
 import { setLocalStorage } from "./setLocalStorage";
 
-import { mocksLocalStorage } from "../tests/jest.constants";
+import { mocksLocalStorage } from "../../tests/jest.constants";
 
 describe("setLocalStorage.ts", () => {
   describe("General Tests.", () => {

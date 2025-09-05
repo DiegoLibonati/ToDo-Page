@@ -2,7 +2,7 @@ import { getTasksFromLocalStorage } from "./getTasksFromLocalStorage";
 
 import { LOCAL_STORAGE_TASKS_KEY } from "../constants/constants";
 
-import { mocksLocalStorage } from "../tests/jest.constants";
+import { mocksLocalStorage } from "../../tests/jest.constants";
 
 describe("getTasksFromLocalStorage.ts", () => {
   describe("General Tests.", () => {

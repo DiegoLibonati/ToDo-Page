@@ -22,8 +22,6 @@ I made a web page that works like JIRA. It is a page where we can upload tasks t
 #### Dependencies
 
 ```
-"@types/uuid": "^9.0.7"
-"@types/jest": "^29.5.14"
 "uuid": "^9.0.1"
 ```
 
@@ -33,6 +31,8 @@ I made a web page that works like JIRA. It is a page where we can upload tasks t
 "@testing-library/dom": "^10.4.0"
 "@testing-library/jest-dom": "^6.6.3"
 "@testing-library/user-event": "^14.5.2"
+"@types/jest": "^29.5.14"
+"@types/uuid": "^9.0.7"
 "jest": "^29.7.0"
 "jest-environment-jsdom": "^29.7.0"
 "ts-jest": "^29.2.5"
