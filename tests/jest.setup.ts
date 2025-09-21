@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 
-import { mocksLocalStorage } from "./jest.constants";
+import { mocksLocalStorage } from "@tests/jest.constants";
 
 Object.defineProperty(global, "localStorage", {
   value: {

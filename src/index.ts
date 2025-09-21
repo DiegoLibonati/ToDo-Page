@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from "uuid";
 
-import { Task } from "./entities/entities";
+import { Task } from "@src/entities/entities";
 
-import { getElements } from "./helpers/getElements";
-import { getTasksFromLocalStorage } from "./helpers/getTasksFromLocalStorage";
-import { setLocalStorage } from "./helpers/setLocalStorage";
+import { getElements } from "@src/helpers/getElements";
+import { getTasksFromLocalStorage } from "@src/helpers/getTasksFromLocalStorage";
+import { setLocalStorage } from "@src/helpers/setLocalStorage";
 
-import { LOCAL_STORAGE_TASKS_KEY } from "./constants/constants";
+import { LOCAL_STORAGE_TASKS_KEY } from "@src/constants/constants";
 
 const handleClickAccept = (e: MouseEvent) => {
   e.preventDefault();

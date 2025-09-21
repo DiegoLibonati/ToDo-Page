@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/dom";
 import user from "@testing-library/user-event";
 
-import { OFFICIAL_BODY } from "../tests/jest.constants";
+import { OFFICIAL_BODY } from "@tests/jest.constants";
 
 describe("index.ts", () => {
   describe("General Tests.", () => {
