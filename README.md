@@ -22,6 +22,7 @@ I made a web page that works like JIRA. It is a page where we can upload tasks t
 1. Javascript
 2. CSS3
 3. HTML5
+4. Vite
 
 ## Libraries used
 
