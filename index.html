@@ -36,7 +36,8 @@
     <!-- <link rel="manifest" href="/manifest.json" /> -->
 
     <link rel="stylesheet" type="text/css" href="./src/index.css" />
-    <link rel="stylesheet" type="text/css" href="./src/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./src/styles/css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./src/styles/css/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -49,171 +50,20 @@
     ></script>
   </head>
   <body oncontextmenu="return false">
-    <header class="header-wrapper">
-      <div class="header-wrapper__content">
-        <h1 class="header-wrapper__title">ToDo APP</h1>
+    <header class="header">
+      <div class="header__content">
+        <h1 class="header__title">ToDo APP</h1>
       </div>
     </header>
 
-    <main class="main-app">
-      <section class="menus">
-        <article class="menu" id="tasks">
-          <div class="menu__header">
-            <h2 class="menu__title">TASKS TO DO</h2>
+    <div id="app"></div>
 
-            <button class="menu__btn-open-menu" aria-label="open menu tasks">
-              <i class="fa-solid fa-chevron-down menu__btn-open-menu-icon"></i>
-            </button>
-          </div>
-
-          <form class="menu__form">
-            <input type="text" class="menu__form-input" />
-            <button
-              type="submit"
-              class="menu__form-btn-accept"
-              aria-label="button accept tasks"
-            >
-              <i class="fa-solid fa-check menu__form-btn-accept-icon"></i>
-            </button>
-          </form>
-
-          <div class="menu__config menu__config-tasks">
-            <div class="menu__config-header">
-              <button
-                type="button"
-                class="menu__config-header-btn-close"
-                aria-label="close menu tasks"
-              >
-                <i
-                  class="fa-solid fa-chevron-up menu__config-header-btn-close-icon"
-                ></i>
-              </button>
-            </div>
-
-            <div class="menu__config-actions">
-              <button
-                type="button"
-                class="menu__config-actions-btn-clear-all-tasks"
-                aria-label="clear all tasks tasks"
-              >
-                CLEAR ALL TASKS
-              </button>
-            </div>
-          </div>
-
-          <div class="menu__note">
-            <ul class="menu__note-list menu__note-list-tasks"></ul>
-          </div>
-        </article>
-
-        <article class="menu" id="progress">
-          <div class="menu__header">
-            <h2 class="menu__title">IN PROGRESS</h2>
-
-            <button class="menu__btn-open-menu" aria-label="open menu progress">
-              <i class="fa-solid fa-chevron-down menu__btn-open-menu-icon"></i>
-            </button>
-          </div>
-
-          <form class="menu__form">
-            <input type="text" class="menu__form-input" />
-            <button
-              type="submit"
-              class="menu__form-btn-accept"
-              aria-label="button accept progress"
-            >
-              <i class="fa-solid fa-check menu__form-btn-accept-icon"></i>
-            </button>
-          </form>
-
-          <div class="menu__config menu__config-progress">
-            <div class="menu__config-header">
-              <button
-                type="button"
-                class="menu__config-header-btn-close"
-                aria-label="close menu progress"
-              >
-                <i
-                  class="fa-solid fa-chevron-up menu__config-header-btn-close-icon"
-                ></i>
-              </button>
-            </div>
-
-            <div class="menu__config-actions">
-              <button
-                type="button"
-                class="menu__config-actions-btn-clear-all-tasks"
-                aria-label="clear all tasks progress"
-              >
-                CLEAR ALL TASKS
-              </button>
-            </div>
-          </div>
-
-          <div class="menu__note">
-            <ul class="menu__note-list menu__note-list-progress"></ul>
-          </div>
-        </article>
-
-        <article class="menu" id="finish">
-          <div class="menu__header">
-            <h2 class="menu__title">FINISH</h2>
-
-            <button class="menu__btn-open-menu" aria-label="open menu finish">
-              <i class="fa-solid fa-chevron-down menu__btn-open-menu-icon"></i>
-            </button>
-          </div>
-
-          <form class="menu__form">
-            <input type="text" class="menu__form-input" />
-            <button
-              type="submit"
-              class="menu__form-btn-accept"
-              aria-label="button accept finish"
-            >
-              <i class="fa-solid fa-check menu__form-btn-accept-icon"></i>
-            </button>
-          </form>
-
-          <div class="menu__config menu__config-finish">
-            <div class="menu__config-header">
-              <button
-                type="button"
-                class="menu__config-header-btn-close"
-                aria-label="close menu finish"
-              >
-                <i
-                  class="fa-solid fa-chevron-up menu__config-header-btn-close-icon"
-                ></i>
-              </button>
-            </div>
-
-            <div class="menu__config-actions">
-              <button
-                type="button"
-                class="menu__config-actions-btn-clear-all-tasks"
-                aria-label="clear all tasks finish"
-              >
-                CLEAR ALL TASKS
-              </button>
-            </div>
-          </div>
-
-          <div class="menu__note">
-            <ul class="menu__note-list menu__note-list-finish"></ul>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <footer class="footer-wrapper">
-      <div class="footer-wrapper__content">
-        <h2 class="footer-wrapper__title">Instruccions:</h2>
-        <p class="footer-wrapper__text">[MOUSE RIGHT CLICK] - DELETE</p>
-        <p class="footer-wrapper__text">[MOUSE SCROLL CLICK] - CROSS OUT</p>
-        <p class="footer-wrapper__text">
-          [MOUSE LEFT CLICK HOLD] - DRAG AND DROP
-        </p>
+    <footer class="footer">
+      <div class="footer__content">
+        <h2 class="footer__title">Instruccions:</h2>
+        <p class="footer__text">[MOUSE RIGHT CLICK] - DELETE</p>
+        <p class="footer__text">[MOUSE SCROLL CLICK] - CROSS OUT</p>
+        <p class="footer__text">[MOUSE LEFT CLICK HOLD] - DRAG AND DROP</p>
       </div>
     </footer>
 

@@ -1,6 +1,6 @@
 import { getTasksFromLocalStorage } from "@src/helpers/getTasksFromLocalStorage";
 
-import { LOCAL_STORAGE_TASKS_KEY } from "@src/constants/constants";
+import { LOCAL_STORAGE_TASKS_KEY } from "@src/constants/vars";
 
 import { mocksLocalStorage } from "@tests/jest.constants";
 

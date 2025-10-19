@@ -1,0 +1,48 @@
+.menu__note-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__note-list-item--line {
+  text-decoration: line-through;
+  color: var(--primary-color);
+}
+
+.menu__note-list-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.2rem solid var(--white-color);
+  border-radius: 0.5rem;
+  height: 5rem;
+  width: 95%;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.menu__note-list-item-wrapper-text {
+  font-size: 2rem;
+  color: var(--white-color);
+}
+
+.menu__note-list-item-wrapper-btn-delete {
+  background: none;
+  border: none;
+}
+
+.menu__note-list-item-wrapper-btn-delete-icon {
+  font-size: 2rem;
+  color: var(--white-color);
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1024px) {
+  .menu__note-list-item-wrapper {
+    justify-content: center;
+  }
+
+  .menu__note-list-item-wrapper-btn-delete {
+    display: none;
+  }
+}

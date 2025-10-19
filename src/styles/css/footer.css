@@ -1,0 +1,40 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  height: 20rem;
+  width: 100%;
+}
+
+.footer__content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100%;
+  width: 80%;
+}
+
+.footer__title {
+  align-self: center;
+  color: var(--white-color);
+  font-size: 3rem;
+}
+
+.footer__text {
+  padding: 0.5rem;
+  text-align: justify;
+  color: var(--white-color);
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    height: 12rem;
+  }
+
+  .footer__text {
+    align-self: center;
+    padding: 0rem;
+  }
+}
