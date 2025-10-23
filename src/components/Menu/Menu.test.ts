@@ -85,9 +85,15 @@ describe("Menu.ts", () => {
     test("It should render the input form and task list", () => {
       const { props } = renderComponent();
 
-      const form = document.querySelector(`.menu__form-${props.id}`);
-      const input = document.querySelector(`.menu__form-input-${props.id}`);
-      const list = document.querySelector(`.menu__note-list-${props.id}`);
+      const form = document.querySelector<HTMLFormElement>(
+        `.menu__form-${props.id}`
+      );
+      const input = document.querySelector<HTMLInputElement>(
+        `.menu__form-input-${props.id}`
+      );
+      const list = document.querySelector<HTMLUListElement>(
+        `.menu__note-list-${props.id}`
+      );
 
       expect(form).toBeInTheDocument();
       expect(input).toBeInTheDocument();
@@ -105,7 +111,9 @@ describe("Menu.ts", () => {
       const form = document.querySelector<HTMLFormElement>(
         `.menu__form-${props.id}`
       )!;
-      const submitBtn = form.querySelector('button[type="submit"]')!;
+      const submitBtn = form.querySelector<HTMLButtonElement>(
+        'button[type="submit"]'
+      )!;
       const list = document.querySelector<HTMLUListElement>(
         `.menu__note-list-${props.id}`
       )!;
@@ -123,7 +131,7 @@ describe("Menu.ts", () => {
         })
       );
 
-      expect(list.querySelector(".task")).toBeInTheDocument();
+      expect(list.querySelector<HTMLLIElement>(".task")).toBeInTheDocument();
       expect(setLocalStorage).toHaveBeenCalledWith(
         LOCAL_STORAGE_TASKS_KEY,
         expect.arrayContaining([
@@ -140,7 +148,9 @@ describe("Menu.ts", () => {
       const { props } = renderComponent();
 
       const openBtn = screen.getByRole("button", { name: /open menu todo/i });
-      const config = document.querySelector(`.menu__config-${props.id}`)!;
+      const config = document.querySelector<HTMLDivElement>(
+        `.menu__config-${props.id}`
+      )!;
 
       expect(config.classList.contains("menu__config--open")).toBe(false);
 
@@ -154,7 +164,9 @@ describe("Menu.ts", () => {
 
       const openBtn = screen.getByRole("button", { name: /open menu todo/i });
       const closeBtn = screen.getByRole("button", { name: /close menu todo/i });
-      const config = document.querySelector(`.menu__config-${props.id}`)!;
+      const config = document.querySelector<HTMLDivElement>(
+        `.menu__config-${props.id}`
+      )!;
 
       await user.click(openBtn);
       expect(config.classList.contains("menu__config--open")).toBe(true);
@@ -173,7 +185,9 @@ describe("Menu.ts", () => {
 
       const { props } = renderComponent();
 
-      const list = document.querySelector(`.menu__note-list-${props.id}`)!;
+      const list = document.querySelector<HTMLUListElement>(
+        `.menu__note-list-${props.id}`
+      )!;
       const clearBtn = screen.getByRole("button", {
         name: /clear all tasks todo/i,
       });
@@ -196,7 +210,9 @@ describe("Menu.ts", () => {
     test("It should prevent default on dragover event", () => {
       const { props } = renderComponent();
 
-      const list = document.querySelector(`.menu__note-list-${props.id}`)!;
+      const list = document.querySelector<HTMLUListElement>(
+        `.menu__note-list-${props.id}`
+      )!;
       const dragOverEvent = new DragEvent("dragover", { cancelable: true });
 
       const preventDefaultSpy = jest.spyOn(dragOverEvent, "preventDefault");
@@ -208,7 +224,9 @@ describe("Menu.ts", () => {
     test("It should append dragged element on drop", () => {
       const { props } = renderComponent();
 
-      const list = document.querySelector(`.menu__note-list-${props.id}`)!;
+      const list = document.querySelector<HTMLUListElement>(
+        `.menu__note-list-${props.id}`
+      )!;
       const li = document.createElement("li");
       li.id = "task-1";
       document.body.append(li);

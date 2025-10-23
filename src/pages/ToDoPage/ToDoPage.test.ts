@@ -49,7 +49,9 @@ describe("ToDoPage.ts", () => {
 
       expect(container).toBeInstanceOf(HTMLElement);
       expect(container.className).toBe("todo-page");
-      expect(container.querySelector(".menus")).toBeInTheDocument();
+      expect(
+        container.querySelector<HTMLElement>(".menus")
+      ).toBeInTheDocument();
     });
 
     test("It should render three Menu components (TASKS, IN PROGRESS, FINISH)", () => {
@@ -137,8 +139,12 @@ describe("ToDoPage.ts", () => {
 
       const { container } = renderComponent();
 
-      const listTasks = container.querySelector(".menu__note-list-tasks")!;
-      const listFinish = container.querySelector(".menu__note-list-finish")!;
+      const listTasks = container.querySelector<HTMLUListElement>(
+        ".menu__note-list-tasks"
+      )!;
+      const listFinish = container.querySelector<HTMLUListElement>(
+        ".menu__note-list-finish"
+      )!;
 
       expect(listTasks.contains(mockTask1)).toBe(true);
       expect(listFinish.contains(mockTask2)).toBe(true);
@@ -148,7 +154,7 @@ describe("ToDoPage.ts", () => {
   describe("Integration Tests.", () => {
     test("It should integrate Menu and Task correctly within the .menus section", () => {
       const { container } = renderComponent();
-      const menusSection = container.querySelector(".menus");
+      const menusSection = container.querySelector<HTMLElement>(".menus");
 
       expect(menusSection?.children.length).toBe(3);
       expect(Menu).toHaveBeenCalledTimes(3);
