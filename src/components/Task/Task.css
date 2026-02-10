@@ -6,14 +6,14 @@
 
 .menu__note-list-item--line {
   text-decoration: line-through;
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 .menu__note-list-item-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 0.2rem solid var(--white-color);
+  border: 0.2rem solid var(--color-white);
   border-radius: 0.5rem;
   height: 5rem;
   width: 95%;
@@ -23,7 +23,7 @@
 
 .menu__note-list-item-wrapper-text {
   font-size: 2rem;
-  color: var(--white-color);
+  color: var(--color-white);
 }
 
 .menu__note-list-item-wrapper-btn-delete {
@@ -33,7 +33,7 @@
 
 .menu__note-list-item-wrapper-btn-delete-icon {
   font-size: 2rem;
-  color: var(--white-color);
+  color: var(--color-white);
   overflow: hidden;
 }
 

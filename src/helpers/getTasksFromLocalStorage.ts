@@ -1,11 +1,11 @@
-import { Task } from "@src/entities/app";
+import type { Task } from "@/types/app";
 
-import { getLocalStorage } from "@src/helpers/getLocalStorage";
+import { getLocalStorage } from "@/helpers/getLocalStorage";
 
-import { LOCAL_STORAGE_TASKS_KEY } from "@src/constants/vars";
+import { LOCAL_STORAGE_TASKS_KEY } from "@/constants/vars";
 
 export const getTasksFromLocalStorage = (): Task[] => {
-  const cards = getLocalStorage<Task[]>(LOCAL_STORAGE_TASKS_KEY);
+  const cards = getLocalStorage(LOCAL_STORAGE_TASKS_KEY) as Task[] | null;
 
-  return cards ? cards : [];
+  return cards ?? [];
 };

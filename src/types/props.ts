@@ -1,7 +1,7 @@
-interface DefaultProps {
-  className?: string;
-  children?: string;
-}
+// interface DefaultProps {
+//   className?: string;
+//   children?: string;
+// }
 
 export interface MenuProps {
   id: string;

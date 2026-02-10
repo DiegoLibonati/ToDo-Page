@@ -3,8 +3,8 @@
   flex-flow: column nowrap;
   width: 80%;
   height: 40rem;
-  background: var(--secondary-color);
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem var(--black-color);
+  background: var(--color-secondary);
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem var(--color-black);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -20,7 +20,7 @@
 .menu__title {
   font-size: 3rem;
   padding-left: 1rem;
-  color: var(--white-color);
+  color: var(--color-white);
 }
 
 .menu__btn-open-menu {
@@ -32,7 +32,7 @@
 .menu__btn-open-menu-icon {
   padding-right: 1rem;
   font-size: 3rem;
-  color: var(--white-color);
+  color: var(--color-white);
   overflow: hidden;
 }
 
@@ -64,7 +64,7 @@
 
 .menu__form-btn-accept-icon {
   font-size: 3rem;
-  color: var(--white-color);
+  color: var(--color-white);
   overflow: hidden;
 }
 
@@ -73,7 +73,7 @@
   align-items: flex-start;
   justify-content: center;
   flex-flow: column nowrap;
-  background: var(--secondary-color);
+  background: var(--color-secondary);
   position: absolute;
   height: 40rem;
   width: 80%;
@@ -101,7 +101,7 @@
 
 .menu__config-header-btn-close-icon {
   font-size: 5rem;
-  color: var(--white-color);
+  color: var(--color-white);
   overflow: hidden;
 }
 
@@ -117,7 +117,7 @@
   background: none;
   border: none;
   font-size: 3rem;
-  color: var(--white-color);
+  color: var(--color-white);
   cursor: pointer;
 }
 

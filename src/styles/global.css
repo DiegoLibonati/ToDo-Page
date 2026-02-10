@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@100&display=swap");
+
+:root {
+  /* Colors */
+  --color-primary: #333c83;
+  --color-secondary: #f24a72;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Typography */
+  --font-family-primary: "Roboto Condensed", Helvetica, sans-serif;
+  --font-size-base: 10px;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Layout */
+  --header-height: 20rem;
+  --footer-height: 20rem;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-family-primary);
+  background-color: var(--color-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  height: var(--header-height);
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.header__title {
+  font-size: 7rem;
+  color: var(--color-white);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  height: var(--footer-height);
+  width: 100%;
+}
+
+.footer__content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100%;
+  width: 80%;
+}
+
+.footer__title {
+  align-self: center;
+  color: var(--color-white);
+  font-size: 3rem;
+}
+
+.footer__text {
+  padding: 0.5rem;
+  text-align: justify;
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    height: 12rem;
+  }
+
+  .footer__text {
+    align-self: center;
+    padding: 0rem;
+  }
+}

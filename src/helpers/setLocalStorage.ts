@@ -1,3 +1,3 @@
-export const setLocalStorage = <T>(key: string, value: T): void => {
+export const setLocalStorage = (key: string, value: unknown): void => {
   localStorage.setItem(key, JSON.stringify(value));
 };

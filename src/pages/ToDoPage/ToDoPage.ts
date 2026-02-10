@@ -1,12 +1,15 @@
-import { Menu } from "@src/components/Menu/Menu";
-import { Task } from "@src/components/Task/Task";
+import type { Page } from "@/types/pages";
+import type { TaskComponent } from "@/types/components";
 
-import { getTasksFromLocalStorage } from "@src/helpers/getTasksFromLocalStorage";
+import { Menu } from "@/components/Menu/Menu";
+import { Task } from "@/components/Task/Task";
 
-import "@src/pages/ToDoPage/ToDoPage.css";
+import { getTasksFromLocalStorage } from "@/helpers/getTasksFromLocalStorage";
 
-export const ToDoPage = (): HTMLElement => {
-  const main = document.createElement("main");
+import "@/pages/ToDoPage/ToDoPage.css";
+
+export const ToDoPage = (): Page => {
+  const main = document.createElement("main") as Page;
   main.className = "todo-page";
 
   main.innerHTML = `
@@ -23,6 +26,8 @@ export const ToDoPage = (): HTMLElement => {
 
   menus?.append(menuTasks, menuInProgress, menuFinish);
 
+  const allTasks: TaskComponent[] = [];
+
   tasks.forEach((task) => {
     const tasksList = main.querySelector<HTMLUListElement>(
       `.menu__note-list-${task.category}`
@@ -36,7 +41,18 @@ export const ToDoPage = (): HTMLElement => {
     });
 
     tasksList?.append(taskComponent);
+    allTasks.push(taskComponent);
   });
+
+  main.cleanup = (): void => {
+    menuTasks.cleanup?.();
+    menuInProgress.cleanup?.();
+    menuFinish.cleanup?.();
+
+    allTasks.forEach((task) => {
+      task.cleanup?.();
+    });
+  };
 
   return main;
 };

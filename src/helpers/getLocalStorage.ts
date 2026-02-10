@@ -1,5 +1,7 @@
-export const getLocalStorage = <T>(key: string): T | null => {
-  return localStorage.getItem(key)
-    ? JSON.parse(localStorage.getItem(key)!)
-    : null;
+export const getLocalStorage = (key: string): unknown => {
+  const item = localStorage.getItem(key);
+
+  if (!item) return null;
+
+  return JSON.parse(item);
 };
