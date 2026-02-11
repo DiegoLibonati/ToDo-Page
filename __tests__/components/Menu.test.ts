@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 
+import type { MenuProps } from "@/types/props";
 import type { MenuComponent, TaskComponent } from "@/types/components";
 
 import { Menu } from "@/components/Menu/Menu";
@@ -17,7 +18,9 @@ jest.mock("uuid", () => ({
   v4: jest.fn(() => "test-uuid-123"),
 }));
 
-const renderComponent = (id: string, title: string): MenuComponent => {
+const renderComponent = (props: MenuProps): MenuComponent => {
+  const { id, title } = props;
+
   const container = Menu({ id, title });
   document.body.appendChild(container);
   return container;
@@ -36,26 +39,26 @@ describe("Menu", () => {
 
   describe("Render", () => {
     it("should create a div element", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       expect(container).toBeInstanceOf(HTMLDivElement);
       expect(container.tagName).toBe("DIV");
     });
 
     it("should have correct CSS class", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       expect(container).toHaveClass("menu");
     });
 
     it("should set correct id", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       expect(container.id).toBe("tasks");
     });
 
     it("should render title correctly", () => {
-      renderComponent("tasks", "TASKS TO DO");
+      renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const title = screen.getByRole("heading", {
         name: "TASKS TO DO",
@@ -67,7 +70,7 @@ describe("Menu", () => {
     });
 
     it("should render open menu button", () => {
-      renderComponent("tasks", "TASKS TO DO");
+      renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const button = screen.getByRole("button", { name: /open menu tasks/i });
 
@@ -76,7 +79,7 @@ describe("Menu", () => {
     });
 
     it("should render form with input", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const form =
         container.querySelector<HTMLFormElement>(".menu__form-tasks");
@@ -90,7 +93,7 @@ describe("Menu", () => {
     });
 
     it("should render form submit button", () => {
-      renderComponent("tasks", "TASKS TO DO");
+      renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const button = screen.getByRole("button", {
         name: /button accept tasks/i,
@@ -101,7 +104,7 @@ describe("Menu", () => {
     });
 
     it("should render close menu button", () => {
-      renderComponent("tasks", "TASKS TO DO");
+      renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const button = screen.getByRole("button", { name: /close menu tasks/i });
 
@@ -109,7 +112,7 @@ describe("Menu", () => {
     });
 
     it("should render clear all tasks button", () => {
-      renderComponent("tasks", "TASKS TO DO");
+      renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const button = screen.getByRole("button", {
         name: /clear all tasks tasks/i,
@@ -120,7 +123,7 @@ describe("Menu", () => {
     });
 
     it("should render tasks list", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const list = container.querySelector<HTMLUListElement>(
         ".menu__note-list-tasks"
@@ -134,7 +137,7 @@ describe("Menu", () => {
   describe("Add Task Functionality", () => {
     it("should add task when form is submitted", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -155,7 +158,7 @@ describe("Menu", () => {
 
     it("should create Task component with correct props", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -181,7 +184,7 @@ describe("Menu", () => {
 
     it("should save task to localStorage", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -206,7 +209,7 @@ describe("Menu", () => {
 
     it("should clear input after adding task", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -226,7 +229,7 @@ describe("Menu", () => {
 
     it("should not add empty task", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -248,7 +251,7 @@ describe("Menu", () => {
 
     it("should trim whitespace from task text", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -273,7 +276,7 @@ describe("Menu", () => {
 
     it("should add multiple tasks", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -301,7 +304,7 @@ describe("Menu", () => {
   describe("Menu Toggle Functionality", () => {
     it("should open config menu when open button is clicked", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const openButton = screen.getByRole("button", {
         name: /open menu tasks/i,
@@ -317,7 +320,7 @@ describe("Menu", () => {
 
     it("should close config menu when close button is clicked", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const openButton = screen.getByRole("button", {
         name: /open menu tasks/i,
@@ -340,7 +343,7 @@ describe("Menu", () => {
   describe("Clear All Tasks Functionality", () => {
     it("should clear all tasks when button is clicked", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -372,7 +375,7 @@ describe("Menu", () => {
         { id: "2", category: "progress", text: "Task 2", complete: false },
       ]);
 
-      renderComponent("tasks", "TASKS TO DO");
+      renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const clearButton = screen.getByRole("button", {
         name: /clear all tasks/i,
@@ -393,7 +396,7 @@ describe("Menu", () => {
         { id: "3", category: "progress", text: "Task 3", complete: false },
       ]);
 
-      renderComponent("tasks", "TASKS TO DO");
+      renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const clearButton = screen.getByRole("button", {
         name: /clear all tasks/i,
@@ -408,7 +411,7 @@ describe("Menu", () => {
 
     it("should call cleanup on all active tasks", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -440,7 +443,7 @@ describe("Menu", () => {
 
   describe("Drag and Drop Functionality", () => {
     it("should prevent default on dragover", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const tasksList = container.querySelector<HTMLUListElement>(
         ".menu__note-list-tasks"
@@ -455,7 +458,7 @@ describe("Menu", () => {
     });
 
     it("should handle drop event with valid data", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const tasksList = container.querySelector<HTMLUListElement>(
         ".menu__note-list-tasks"
@@ -481,7 +484,7 @@ describe("Menu", () => {
     });
 
     it("should handle drop event with invalid id", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const tasksList = container.querySelector<HTMLUListElement>(
         ".menu__note-list-tasks"
@@ -510,7 +513,7 @@ describe("Menu", () => {
 
       ids.forEach((id) => {
         document.body.innerHTML = "";
-        const container = renderComponent(id, "Test");
+        const container = renderComponent({ id: id, title: "Test" });
 
         expect(container.id).toBe(id);
         expect(
@@ -524,7 +527,7 @@ describe("Menu", () => {
 
       titles.forEach((title) => {
         document.body.innerHTML = "";
-        renderComponent("test", title);
+        renderComponent({ id: "test", title: title });
 
         const heading = screen.getByRole("heading", { level: 2 });
         expect(heading).toHaveTextContent(title);
@@ -534,13 +537,13 @@ describe("Menu", () => {
 
   describe("Cleanup", () => {
     it("should have cleanup function", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       expect(typeof container.cleanup).toBe("function");
     });
 
     it("should remove all event listeners on cleanup", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const form =
         container.querySelector<HTMLFormElement>(".menu__form-tasks");
@@ -556,7 +559,7 @@ describe("Menu", () => {
 
     it("should clear active tasks and call their cleanup", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -581,7 +584,7 @@ describe("Menu", () => {
   describe("Edge Cases", () => {
     it("should handle form submission with Enter key", async () => {
       const user = userEvent.setup({ delay: null });
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const input = container.querySelector<HTMLInputElement>(
         ".menu__form-input-tasks"
@@ -598,7 +601,7 @@ describe("Menu", () => {
       const user = userEvent.setup({ delay: null });
       (getTasksFromLocalStorage as jest.Mock).mockReturnValue([]);
 
-      renderComponent("tasks", "TASKS TO DO");
+      renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const clearButton = screen.getByRole("button", {
         name: /clear all tasks/i,
@@ -612,7 +615,7 @@ describe("Menu", () => {
 
   describe("DOM Structure", () => {
     it("should have menu header", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const header = container.querySelector<HTMLDivElement>(".menu__header");
 
@@ -620,7 +623,7 @@ describe("Menu", () => {
     });
 
     it("should have menu note section", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const note = container.querySelector<HTMLDivElement>(".menu__note");
 
@@ -628,7 +631,7 @@ describe("Menu", () => {
     });
 
     it("should nest elements correctly", () => {
-      const container = renderComponent("tasks", "TASKS TO DO");
+      const container = renderComponent({ id: "tasks", title: "TASKS TO DO" });
 
       const title = container.querySelector<HTMLHeadingElement>(".menu__title");
       const header = container.querySelector<HTMLDivElement>(".menu__header");

@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 
+import type { TaskProps } from "@/types/props";
 import type { TaskComponent } from "@/types/components";
 
 import { Task } from "@/components/Task/Task";
@@ -13,12 +14,9 @@ import { LOCAL_STORAGE_TASKS_KEY } from "@/constants/vars";
 jest.mock("@/helpers/getTasksFromLocalStorage");
 jest.mock("@/helpers/setLocalStorage");
 
-const renderComponent = (
-  id: string,
-  category: string,
-  complete: boolean,
-  text: string
-): TaskComponent => {
+const renderComponent = (props: TaskProps): TaskComponent => {
+  const { id, category, complete, text } = props;
+
   const container = Task({ id, category, complete, text });
   document.body.appendChild(container);
   return container;
@@ -37,32 +35,57 @@ describe("Task", () => {
 
   describe("Render", () => {
     it("should create a li element", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       expect(container).toBeInstanceOf(HTMLLIElement);
       expect(container.tagName).toBe("LI");
     });
 
     it("should have correct CSS class", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       expect(container).toHaveClass("menu__note-list-item");
     });
 
     it("should set correct id", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       expect(container.id).toBe("tasks/1");
     });
 
     it("should be draggable", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       expect(container.draggable).toBe(true);
     });
 
     it("should render task text", () => {
-      renderComponent("1", "tasks", false, "Test task");
+      renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const text = screen.getByRole("heading", {
         name: "Test task",
@@ -74,7 +97,12 @@ describe("Task", () => {
     });
 
     it("should render delete button", () => {
-      renderComponent("1", "tasks", false, "Test task");
+      renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const button = screen.getByRole("button", { name: /delete task 1/i });
 
@@ -82,13 +110,23 @@ describe("Task", () => {
     });
 
     it("should add line class when complete is true", () => {
-      const container = renderComponent("1", "tasks", true, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: true,
+        text: "Test task",
+      });
 
       expect(container).toHaveClass("menu__note-list-item--line");
     });
 
     it("should not add line class when complete is false", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       expect(container).not.toHaveClass("menu__note-list-item--line");
     });
@@ -101,7 +139,12 @@ describe("Task", () => {
         { id: "1", category: "tasks", text: "Test task", complete: false },
       ]);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const button = screen.getByRole("button", { name: /delete task 1/i });
 
@@ -118,7 +161,12 @@ describe("Task", () => {
         { id: "2", category: "tasks", text: "Task 2", complete: false },
       ]);
 
-      renderComponent("1", "tasks", false, "Task 1");
+      renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Task 1",
+      });
 
       const button = screen.getByRole("button", { name: /delete task 1/i });
 
@@ -135,7 +183,12 @@ describe("Task", () => {
         { id: "1", category: "tasks", text: "Test task", complete: false },
       ]);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
       const cleanupSpy = jest.spyOn(container, "cleanup");
 
       const button = screen.getByRole("button", { name: /delete task 1/i });
@@ -151,7 +204,12 @@ describe("Task", () => {
         { id: "1", category: "tasks", text: "Test task", complete: false },
       ]);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       await user.pointer({ keys: "[MouseRight]", target: container });
 
@@ -172,7 +230,12 @@ describe("Task", () => {
         { id: "1", category: "tasks", text: "Test task", complete: false },
       ]);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       await user.pointer({ keys: "[MouseLeft]", target: container });
 
@@ -194,7 +257,12 @@ describe("Task", () => {
         { id: "1", category: "tasks", text: "Test task", complete: false },
       ]);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       await user.pointer({ keys: "[MouseMiddle]", target: container });
 
@@ -214,7 +282,12 @@ describe("Task", () => {
         { id: "1", category: "tasks", text: "Test task", complete: true },
       ]);
 
-      const container = renderComponent("1", "tasks", true, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: true,
+        text: "Test task",
+      });
 
       expect(container).toHaveClass("menu__note-list-item--line");
 
@@ -245,7 +318,12 @@ describe("Task", () => {
         { id: "2", category: "tasks", text: "Task 2", complete: false },
       ]);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       await user.pointer({ keys: "[MouseLeft]", target: container });
 
@@ -258,7 +336,12 @@ describe("Task", () => {
 
   describe("Drag and Drop Functionality", () => {
     it("should set data on drag start", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const dragEvent = new DragEvent("dragstart", {
         bubbles: true,
@@ -289,7 +372,12 @@ describe("Task", () => {
       menu.appendChild(menuNote);
       document.body.appendChild(menu);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
       tasksList.appendChild(container);
 
       const dragEvent = new DragEvent("dragend", { bubbles: true });
@@ -328,7 +416,12 @@ describe("Task", () => {
       menu.appendChild(menuNote);
       document.body.appendChild(menu);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
       tasksList.appendChild(container);
 
       const dragEvent = new DragEvent("dragend", { bubbles: true });
@@ -348,7 +441,12 @@ describe("Task", () => {
 
       ids.forEach((id) => {
         document.body.innerHTML = "";
-        const container = renderComponent(id, "tasks", false, "Test");
+        const container = renderComponent({
+          id: id,
+          category: "tasks",
+          complete: false,
+          text: "Test",
+        });
 
         expect(container.id).toBe(`tasks/${id}`);
       });
@@ -359,7 +457,12 @@ describe("Task", () => {
 
       categories.forEach((category) => {
         document.body.innerHTML = "";
-        const container = renderComponent("1", category, false, "Test");
+        const container = renderComponent({
+          id: "1",
+          category: category,
+          complete: false,
+          text: "Test",
+        });
 
         expect(container.id).toBe(`${category}/1`);
       });
@@ -374,7 +477,12 @@ describe("Task", () => {
 
       texts.forEach((text) => {
         document.body.innerHTML = "";
-        renderComponent("1", "tasks", false, text);
+        renderComponent({
+          id: "1",
+          category: "tasks",
+          complete: false,
+          text: text,
+        });
 
         const heading = screen.getByRole("heading", { level: 2 });
         expect(heading).toHaveTextContent(text);
@@ -384,13 +492,23 @@ describe("Task", () => {
 
   describe("Cleanup", () => {
     it("should have cleanup function", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       expect(typeof container.cleanup).toBe("function");
     });
 
     it("should remove all event listeners on cleanup", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const removeEventListenerSpy = jest.spyOn(
         container,
@@ -414,7 +532,12 @@ describe("Task", () => {
     });
 
     it("should remove button event listener on cleanup", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const button = container.querySelector<HTMLButtonElement>(
         ".menu__note-list-item-wrapper-btn-delete-1"
@@ -433,7 +556,12 @@ describe("Task", () => {
 
   describe("DOM Structure", () => {
     it("should have wrapper div", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const wrapper = container.querySelector<HTMLDivElement>(
         ".menu__note-list-item-wrapper"
@@ -443,7 +571,12 @@ describe("Task", () => {
     });
 
     it("should nest elements correctly", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const wrapper = container.querySelector<HTMLDivElement>(
         ".menu__note-list-item-wrapper"
@@ -456,7 +589,12 @@ describe("Task", () => {
     });
 
     it("should have delete button inside wrapper", () => {
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       const wrapper = container.querySelector<HTMLDivElement>(
         ".menu__note-list-item-wrapper"
@@ -471,7 +609,12 @@ describe("Task", () => {
 
   describe("Edge Cases", () => {
     it("should handle empty text", () => {
-      renderComponent("1", "tasks", false, "");
+      renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "",
+      });
 
       const heading = screen.getByRole("heading", { level: 2 });
       expect(heading).toHaveTextContent("");
@@ -479,7 +622,12 @@ describe("Task", () => {
 
     it("should handle special characters in text", () => {
       const specialText = "<script>alert('test')</script>";
-      renderComponent("1", "tasks", false, specialText);
+      renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: specialText,
+      });
 
       const heading = screen.getByRole("heading", { level: 2 });
       expect(heading.innerHTML).toContain("alert('test')");
@@ -496,7 +644,12 @@ describe("Task", () => {
         { id: "1", category: "tasks", text: "Test task", complete: false },
       ]);
 
-      const container = renderComponent("1", "tasks", false, "Test task");
+      const container = renderComponent({
+        id: "1",
+        category: "tasks",
+        complete: false,
+        text: "Test task",
+      });
 
       await user.pointer({ keys: "[MouseLeft]", target: container });
 
