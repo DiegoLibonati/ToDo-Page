@@ -109,3 +109,7 @@ if (typeof DataTransfer === "undefined") {
     global as typeof globalThis & { DataTransfer: typeof MockDataTransfer }
   ).DataTransfer = MockDataTransfer;
 }
+
+jest.mock("uuid", () => ({
+  v4: jest.fn(() => "mocked-uuid-1234"),
+}));

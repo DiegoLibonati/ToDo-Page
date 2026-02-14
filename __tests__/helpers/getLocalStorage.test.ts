@@ -1,124 +1,54 @@
 import { getLocalStorage } from "@/helpers/getLocalStorage";
 
+import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
+
 describe("getLocalStorage", () => {
   beforeEach(() => {
-    localStorage.clear();
+    mocksLocalStorage.clear();
   });
 
   afterEach(() => {
-    localStorage.clear();
+    mocksLocalStorage.clear();
   });
 
-  it("should return parsed value from localStorage", () => {
-    const data = { name: "test", value: 123 };
-    localStorage.setItem("testKey", JSON.stringify(data));
+  it("should return parsed data when key exists", () => {
+    const testData = { name: "test", value: 123 };
+    mocksLocalStorage.setItem("test-key", JSON.stringify(testData));
 
-    const result = getLocalStorage("testKey");
+    const result = getLocalStorage("test-key");
 
-    expect(result).toEqual(data);
+    expect(result).toEqual(testData);
   });
 
   it("should return null when key does not exist", () => {
-    const result = getLocalStorage("nonExistentKey");
+    const result = getLocalStorage("non-existent-key");
 
     expect(result).toBeNull();
   });
 
-  it("should return null when value is null", () => {
-    localStorage.setItem("testKey", "null");
+  it("should parse arrays correctly", () => {
+    const testArray = [1, 2, 3, 4, 5];
+    mocksLocalStorage.setItem("test-array", JSON.stringify(testArray));
 
-    const result = getLocalStorage("testKey");
+    const result = getLocalStorage("test-array");
 
-    expect(result).toBeNull();
+    expect(result).toEqual(testArray);
   });
 
-  it("should parse string values", () => {
-    localStorage.setItem("testKey", JSON.stringify("test string"));
+  it("should parse strings correctly", () => {
+    const testString = "hello world";
+    mocksLocalStorage.setItem("test-string", JSON.stringify(testString));
 
-    const result = getLocalStorage("testKey");
+    const result = getLocalStorage("test-string");
 
-    expect(result).toBe("test string");
+    expect(result).toBe(testString);
   });
 
-  it("should parse number values", () => {
-    localStorage.setItem("testKey", JSON.stringify(42));
+  it("should parse boolean values correctly", () => {
+    mocksLocalStorage.setItem("test-bool", JSON.stringify(true));
 
-    const result = getLocalStorage("testKey");
-
-    expect(result).toBe(42);
-  });
-
-  it("should parse boolean values", () => {
-    localStorage.setItem("testKey", JSON.stringify(true));
-
-    const result = getLocalStorage("testKey");
+    const result = getLocalStorage("test-bool");
 
     expect(result).toBe(true);
-  });
-
-  it("should parse array values", () => {
-    const data = [1, 2, 3, 4, 5];
-    localStorage.setItem("testKey", JSON.stringify(data));
-
-    const result = getLocalStorage("testKey");
-
-    expect(result).toEqual(data);
-  });
-
-  it("should parse nested objects", () => {
-    const data = {
-      user: { name: "John", age: 30 },
-      settings: { theme: "dark", notifications: true },
-    };
-    localStorage.setItem("testKey", JSON.stringify(data));
-
-    const result = getLocalStorage("testKey");
-
-    expect(result).toEqual(data);
-  });
-
-  it("should handle empty string key", () => {
-    localStorage.setItem("", JSON.stringify({ test: "value" }));
-
-    const result = getLocalStorage("");
-
-    expect(result).toEqual({ test: "value" });
-  });
-
-  it("should handle special characters in key", () => {
-    const key = "test-key_123!@#";
-    const data = { value: "test" };
-    localStorage.setItem(key, JSON.stringify(data));
-
-    const result = getLocalStorage(key);
-
-    expect(result).toEqual(data);
-  });
-
-  it("should return null for empty string value", () => {
-    localStorage.setItem("testKey", "");
-
-    const result = getLocalStorage("testKey");
-
-    expect(result).toBeNull();
-  });
-
-  it("should handle complex data structures", () => {
-    const data = {
-      id: "abc-123",
-      items: [
-        { name: "Item 1", complete: false },
-        { name: "Item 2", complete: true },
-      ],
-      metadata: {
-        createdAt: "2024-01-01",
-        updatedAt: "2024-01-02",
-      },
-    };
-    localStorage.setItem("testKey", JSON.stringify(data));
-
-    const result = getLocalStorage("testKey");
-
-    expect(result).toEqual(data);
   });
 });

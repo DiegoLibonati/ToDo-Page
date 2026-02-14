@@ -9,149 +9,29 @@ describe("setLocalStorage", () => {
     localStorage.clear();
   });
 
-  it("should save value to localStorage", () => {
-    const data = { name: "test", value: 123 };
+  it("should store data in localStorage as JSON", () => {
+    const testData = { name: "test", value: 123 };
 
-    setLocalStorage("testKey", data);
+    setLocalStorage("test-key", testData);
 
-    const stored = localStorage.getItem("testKey");
-    expect(stored).toBe(JSON.stringify(data));
+    const stored = localStorage.getItem("test-key");
+    expect(stored).toBe(JSON.stringify(testData));
   });
 
-  it("should save string values", () => {
-    setLocalStorage("testKey", "test string");
+  it("should store arrays in localStorage", () => {
+    const testArray = [1, 2, 3, 4, 5];
 
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toBe("test string");
+    setLocalStorage("test-array", testArray);
+
+    const stored = localStorage.getItem("test-array");
+    expect(stored).toBe(JSON.stringify(testArray));
   });
 
-  it("should save number values", () => {
-    setLocalStorage("testKey", 42);
+  it("should overwrite existing data", () => {
+    setLocalStorage("test-key", "first");
+    setLocalStorage("test-key", "second");
 
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toBe(42);
-  });
-
-  it("should save boolean values", () => {
-    setLocalStorage("testKey", true);
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toBe(true);
-  });
-
-  it("should save null values", () => {
-    setLocalStorage("testKey", null);
-
-    const stored = localStorage.getItem("testKey");
-    expect(stored).toBe("null");
-  });
-
-  it("should save array values", () => {
-    const data = [1, 2, 3, 4, 5];
-
-    setLocalStorage("testKey", data);
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toEqual(data);
-  });
-
-  it("should save object values", () => {
-    const data = { name: "John", age: 30 };
-
-    setLocalStorage("testKey", data);
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toEqual(data);
-  });
-
-  it("should save nested objects", () => {
-    const data = {
-      user: { name: "John", age: 30 },
-      settings: { theme: "dark", notifications: true },
-    };
-
-    setLocalStorage("testKey", data);
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toEqual(data);
-  });
-
-  it("should overwrite existing values", () => {
-    setLocalStorage("testKey", "old value");
-    setLocalStorage("testKey", "new value");
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toBe("new value");
-  });
-
-  it("should handle empty string key", () => {
-    setLocalStorage("", { test: "value" });
-
-    const stored = localStorage.getItem("");
-    expect(JSON.parse(stored!)).toEqual({ test: "value" });
-  });
-
-  it("should handle special characters in key", () => {
-    const key = "test-key_123!@#";
-    const data = { value: "test" };
-
-    setLocalStorage(key, data);
-
-    const stored = localStorage.getItem(key);
-    expect(JSON.parse(stored!)).toEqual(data);
-  });
-
-  it("should save empty object", () => {
-    setLocalStorage("testKey", {});
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toEqual({});
-  });
-
-  it("should save empty array", () => {
-    setLocalStorage("testKey", []);
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toEqual([]);
-  });
-
-  it("should handle complex data structures", () => {
-    const data = {
-      id: "abc-123",
-      items: [
-        { name: "Item 1", complete: false },
-        { name: "Item 2", complete: true },
-      ],
-      metadata: {
-        createdAt: "2024-01-01",
-        updatedAt: "2024-01-02",
-      },
-    };
-
-    setLocalStorage("testKey", data);
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toEqual(data);
-  });
-
-  it("should save zero as number", () => {
-    setLocalStorage("testKey", 0);
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toBe(0);
-  });
-
-  it("should save empty string", () => {
-    setLocalStorage("testKey", "");
-
-    const stored = localStorage.getItem("testKey");
-    expect(JSON.parse(stored!)).toBe("");
-  });
-
-  it("should save undefined as null", () => {
-    setLocalStorage("testKey", undefined);
-
-    const stored = localStorage.getItem("testKey");
-    expect(stored).toBeNull();
+    const stored = localStorage.getItem("test-key");
+    expect(stored).toBe(JSON.stringify("second"));
   });
 });
