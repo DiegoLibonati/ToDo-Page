@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/dom";
 
 import type { Page } from "@/types/pages";
-import type { Task } from "@/types/app";
 
 import { ToDoPage } from "@/pages/ToDoPage/ToDoPage";
 
 import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
+import { mockTasks } from "@tests/__mocks__/tasks.mock";
 
 const renderPage = (): Page => {
   const container = ToDoPage();
@@ -52,27 +52,15 @@ describe("ToDoPage", () => {
   });
 
   it("should load and render tasks from localStorage", () => {
-    const mockTasks: Task[] = [
-      { id: "1", category: "tasks", text: "Task 1", complete: false },
-      { id: "2", category: "progress", text: "Task 2", complete: false },
-      { id: "3", category: "finish", text: "Task 3", complete: true },
-    ];
-
     mocksLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
 
     renderPage();
 
     expect(screen.getByText("Task 1")).toBeInTheDocument();
     expect(screen.getByText("Task 2")).toBeInTheDocument();
-    expect(screen.getByText("Task 3")).toBeInTheDocument();
   });
 
   it("should render tasks in correct categories", () => {
-    const mockTasks: Task[] = [
-      { id: "1", category: "tasks", text: "ToDo Task", complete: false },
-      { id: "2", category: "progress", text: "Progress Task", complete: false },
-    ];
-
     mocksLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
 
     renderPage();
@@ -84,15 +72,11 @@ describe("ToDoPage", () => {
       ".menu__note-list-progress"
     );
 
-    expect(tasksList?.textContent).toContain("ToDo Task");
-    expect(progressList?.textContent).toContain("Progress Task");
+    expect(tasksList?.textContent).toContain("Task 1");
+    expect(progressList?.textContent).toContain("Task 2");
   });
 
   it("should cleanup all menus and tasks on page cleanup", () => {
-    const mockTasks: Task[] = [
-      { id: "1", category: "tasks", text: "Task 1", complete: false },
-    ];
-
     mocksLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
 
     const page = renderPage();

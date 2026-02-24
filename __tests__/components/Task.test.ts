@@ -7,6 +7,7 @@ import type { TaskComponent } from "@/types/components";
 import { Task } from "@/components/Task/Task";
 
 import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
+import { mockTasks } from "@tests/__mocks__/tasks.mock";
 
 const renderComponent = (props: TaskProps): TaskComponent => {
   const container = Task(props);
@@ -78,7 +79,7 @@ describe("Task Component", () => {
 
   it("should delete task when delete button is clicked", async () => {
     const user = userEvent.setup();
-    const mockTasks = [defaultProps];
+
     mocksLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
 
     renderComponent(defaultProps);
