@@ -1,0 +1,21 @@
+{
+  "name": "ToDo",
+  "short_name": "ToDo",
+  "description": "I made a web page that works like JIRA. It is a page where we can upload tasks to do, that are in progress or that are done. In addition we can delete all the tasks of each category separately, we can drag and drop the tasks from one category to another with drag and drop. Also by clicking with the wheel we can cross out the task and with the right click we can delete it from the dashboard.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
