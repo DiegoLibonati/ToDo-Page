@@ -22,7 +22,7 @@ export const Menu = ({ id, title }: MenuProps): MenuComponent => {
     <div class="menu__header">
         <h2 class="menu__title">${title}</h2>
 
-        <button class="menu__btn-open-menu menu__btn-open-menu-${id}" aria-label="open menu ${id}">
+        <button class="menu__btn-open-menu menu__btn-open-menu-${id}" aria-label="Open ${id} settings">
             <i class="fa-solid fa-chevron-down menu__btn-open-menu-icon"></i>
         </button>
     </div>
@@ -32,7 +32,7 @@ export const Menu = ({ id, title }: MenuProps): MenuComponent => {
         <button
             type="submit"
             class="menu__form-btn-accept"
-            aria-label="button accept ${id}"
+            aria-label="Add task to ${id}"
         >
             <i class="fa-solid fa-check menu__form-btn-accept-icon"></i>
         </button>
@@ -43,7 +43,7 @@ export const Menu = ({ id, title }: MenuProps): MenuComponent => {
             <button
                 type="button"
                 class="menu__config-header-btn-close menu__config-header-btn-close-${id}"
-                aria-label="close menu ${id}"
+                aria-label="Close ${id} settings"
             >
                 <i class="fa-solid fa-chevron-up menu__config-header-btn-close-icon"></i>
             </button>
@@ -53,7 +53,7 @@ export const Menu = ({ id, title }: MenuProps): MenuComponent => {
             <button
                 type="button"
                 class="menu__config-actions-btn-clear-all-tasks menu__config-actions-btn-clear-all-tasks-${id}"
-                aria-label="clear all tasks ${id}"
+                aria-label="Clear all tasks in ${id}"
             >
                 CLEAR ALL TASKS
             </button>

@@ -53,7 +53,7 @@ describe("Menu Component", () => {
       ".menu__form-input-tasks"
     );
     const submitButton = screen.getByRole("button", {
-      name: "button accept tasks",
+      name: "Add task to tasks",
     });
 
     expect(input).toBeInTheDocument();
@@ -64,9 +64,11 @@ describe("Menu Component", () => {
   it("should render open and close menu buttons", () => {
     renderComponent(defaultProps);
 
-    const openButton = screen.getByRole("button", { name: "open menu tasks" });
+    const openButton = screen.getByRole("button", {
+      name: "Open tasks settings",
+    });
     const closeButton = screen.getByRole("button", {
-      name: "close menu tasks",
+      name: "Close tasks settings",
     });
 
     expect(openButton).toBeInTheDocument();
@@ -77,7 +79,7 @@ describe("Menu Component", () => {
     renderComponent(defaultProps);
 
     const clearButton = screen.getByRole("button", {
-      name: "clear all tasks tasks",
+      name: "Clear all tasks in tasks",
     });
     expect(clearButton).toBeInTheDocument();
   });
@@ -116,7 +118,9 @@ describe("Menu Component", () => {
     const user = userEvent.setup();
     renderComponent(defaultProps);
 
-    const openButton = screen.getByRole("button", { name: "open menu tasks" });
+    const openButton = screen.getByRole("button", {
+      name: "Open tasks settings",
+    });
     await user.click(openButton);
 
     const menuConfig = document.querySelector<HTMLDivElement>(
@@ -129,9 +133,11 @@ describe("Menu Component", () => {
     const user = userEvent.setup();
     renderComponent(defaultProps);
 
-    const openButton = screen.getByRole("button", { name: "open menu tasks" });
+    const openButton = screen.getByRole("button", {
+      name: "Open tasks settings",
+    });
     const closeButton = screen.getByRole("button", {
-      name: "close menu tasks",
+      name: "Close tasks settings",
     });
 
     await user.click(openButton);
