@@ -2,7 +2,7 @@ import { screen } from "@testing-library/dom";
 
 import type { Page } from "@/types/pages";
 
-import { ToDoPage } from "@/pages/ToDoPage/ToDoPage";
+import ToDoPage from "@/pages/ToDoPage/ToDoPage";
 
 import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
 import { mockTasks } from "@tests/__mocks__/tasks.mock";

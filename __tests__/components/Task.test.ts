@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import type { TaskProps } from "@/types/props";
 import type { TaskComponent } from "@/types/components";
 
-import { Task } from "@/components/Task/Task";
+import Task from "@/components/Task/Task";
 
 import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
 import { mockTasks } from "@tests/__mocks__/tasks.mock";

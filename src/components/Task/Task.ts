@@ -8,12 +8,7 @@ import { LOCAL_STORAGE_TASKS_KEY } from "@/constants/vars";
 
 import "@/components/Task/Task.css";
 
-export const Task = ({
-  id,
-  category,
-  complete,
-  text,
-}: TaskProps): TaskComponent => {
+const Task = ({ id, category, complete, text }: TaskProps): TaskComponent => {
   const liRoot = document.createElement("li") as TaskComponent;
   liRoot.draggable = true;
   liRoot.className = "menu__note-list-item";
@@ -114,3 +109,5 @@ export const Task = ({
 
   return liRoot;
 };
+
+export default Task;

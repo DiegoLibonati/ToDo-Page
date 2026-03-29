@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import type { MenuProps } from "@/types/props";
 import type { MenuComponent } from "@/types/components";
 
-import { Menu } from "@/components/Menu/Menu";
+import Menu from "@/components/Menu/Menu";
 
 import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
 

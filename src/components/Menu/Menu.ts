@@ -4,7 +4,7 @@ import type { Task as TaskT } from "@/types/app";
 import type { MenuProps } from "@/types/props";
 import type { MenuComponent, TaskComponent } from "@/types/components";
 
-import { Task } from "@/components/Task/Task";
+import Task from "@/components/Task/Task";
 
 import { getTasksFromLocalStorage } from "@/helpers/getTasksFromLocalStorage";
 import { setLocalStorage } from "@/helpers/setLocalStorage";
@@ -13,7 +13,7 @@ import { LOCAL_STORAGE_TASKS_KEY } from "@/constants/vars";
 
 import "@/components/Menu/Menu.css";
 
-export const Menu = ({ id, title }: MenuProps): MenuComponent => {
+const Menu = ({ id, title }: MenuProps): MenuComponent => {
   const divRoot = document.createElement("div") as MenuComponent;
   divRoot.className = "menu";
   divRoot.id = id;
@@ -202,3 +202,5 @@ export const Menu = ({ id, title }: MenuProps): MenuComponent => {
 
   return divRoot;
 };
+
+export default Menu;

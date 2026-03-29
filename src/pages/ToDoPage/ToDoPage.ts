@@ -1,14 +1,14 @@
 import type { Page } from "@/types/pages";
 import type { TaskComponent } from "@/types/components";
 
-import { Menu } from "@/components/Menu/Menu";
-import { Task } from "@/components/Task/Task";
+import Menu from "@/components/Menu/Menu";
+import Task from "@/components/Task/Task";
 
 import { getTasksFromLocalStorage } from "@/helpers/getTasksFromLocalStorage";
 
 import "@/pages/ToDoPage/ToDoPage.css";
 
-export const ToDoPage = (): Page => {
+const ToDoPage = (): Page => {
   const main = document.createElement("main") as Page;
   main.className = "todo-page";
 
@@ -56,3 +56,5 @@ export const ToDoPage = (): Page => {
 
   return main;
 };
+
+export default ToDoPage;
