@@ -4,7 +4,7 @@ import type { Page } from "@/types/pages";
 
 import ToDoPage from "@/pages/ToDoPage/ToDoPage";
 
-import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
+import { mockLocalStorage } from "@tests/__mocks__/localStorage.mock";
 import { mockTasks } from "@tests/__mocks__/tasks.mock";
 
 const renderPage = (): Page => {
@@ -15,13 +15,13 @@ const renderPage = (): Page => {
 
 describe("ToDoPage", () => {
   beforeEach(() => {
-    mocksLocalStorage.clear();
-    mocksLocalStorage.setItem("tasks", JSON.stringify([]));
+    mockLocalStorage.clear();
+    mockLocalStorage.setItem("tasks", JSON.stringify([]));
   });
 
   afterEach(() => {
     document.body.innerHTML = "";
-    mocksLocalStorage.clear();
+    mockLocalStorage.clear();
   });
 
   it("should render the page with correct structure", () => {
@@ -52,7 +52,7 @@ describe("ToDoPage", () => {
   });
 
   it("should load and render tasks from localStorage", () => {
-    mocksLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
+    mockLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
 
     renderPage();
 
@@ -61,7 +61,7 @@ describe("ToDoPage", () => {
   });
 
   it("should render tasks in correct categories", () => {
-    mocksLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
+    mockLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
 
     renderPage();
 
@@ -77,7 +77,7 @@ describe("ToDoPage", () => {
   });
 
   it("should cleanup all menus and tasks on page cleanup", () => {
-    mocksLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
+    mockLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
 
     const page = renderPage();
 

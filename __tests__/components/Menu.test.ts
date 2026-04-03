@@ -6,7 +6,7 @@ import type { MenuComponent } from "@/types/components";
 
 import Menu from "@/components/Menu/Menu";
 
-import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
+import { mockLocalStorage } from "@tests/__mocks__/localStorage.mock";
 
 const renderComponent = (props: MenuProps): MenuComponent => {
   const container = Menu(props);
@@ -16,13 +16,13 @@ const renderComponent = (props: MenuProps): MenuComponent => {
 
 describe("Menu Component", () => {
   beforeEach(() => {
-    mocksLocalStorage.clear();
-    mocksLocalStorage.setItem("tasks", JSON.stringify([]));
+    mockLocalStorage.clear();
+    mockLocalStorage.setItem("tasks", JSON.stringify([]));
   });
 
   afterEach(() => {
     document.body.innerHTML = "";
-    mocksLocalStorage.clear();
+    mockLocalStorage.clear();
   });
 
   const defaultProps: MenuProps = {

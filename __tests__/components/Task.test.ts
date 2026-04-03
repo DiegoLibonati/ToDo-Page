@@ -6,7 +6,7 @@ import type { TaskComponent } from "@/types/components";
 
 import Task from "@/components/Task/Task";
 
-import { mocksLocalStorage } from "@tests/__mocks__/localStorage.mock";
+import { mockLocalStorage } from "@tests/__mocks__/localStorage.mock";
 import { mockTasks } from "@tests/__mocks__/tasks.mock";
 
 const renderComponent = (props: TaskProps): TaskComponent => {
@@ -17,13 +17,13 @@ const renderComponent = (props: TaskProps): TaskComponent => {
 
 describe("Task Component", () => {
   beforeEach(() => {
-    mocksLocalStorage.clear();
-    mocksLocalStorage.setItem("tasks", JSON.stringify([]));
+    mockLocalStorage.clear();
+    mockLocalStorage.setItem("tasks", JSON.stringify([]));
   });
 
   afterEach(() => {
     document.body.innerHTML = "";
-    mocksLocalStorage.clear();
+    mockLocalStorage.clear();
   });
 
   const defaultProps: TaskProps = {
@@ -80,7 +80,7 @@ describe("Task Component", () => {
   it("should delete task when delete button is clicked", async () => {
     const user = userEvent.setup();
 
-    mocksLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
+    mockLocalStorage.setItem("tasks", JSON.stringify(mockTasks));
 
     renderComponent(defaultProps);
 
